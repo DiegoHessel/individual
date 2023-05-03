@@ -46,18 +46,27 @@ body {
 }
 
 .banner {
+    display: flex;
     height: fit-content;
     padding: 40px 0;
-    color: white;
-    background-image: url('../imagem/jovens-ativos-jogando-squash.jpg');
+    color: black;
     background-size: cover;
+}
+.banner .img{
+    display: flex;
+    width: 200px;
+    height: 200px;
+   
+
 }
 
 .banner .container {
     height: 600px;
-    font-size: 36px;
-    justify-content: center;
-    align-items: center;
+    font-size: 12px;
+    align-items: left;
+   left: 100px;
+   top:370px;
+    position: absolute;
 }
 
 .banner p {
@@ -67,7 +76,6 @@ body {
     width: 280px;
 
 }
-
 .banner .container span {
 
     font-weight: 800;
