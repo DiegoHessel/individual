@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Courier New', Geneva, sans-serif;
-    background-color: rgb(60, 99, 157);;
+    background-color: rgb(5, 242, 222);
 }
 
 .container {
@@ -12,7 +12,8 @@ body {
 }
 
 .header {
-    border-bottom: 2px  rgb(119, 239, 0) solid;
+    background-color: black;
+    border-bottom: 2px  rgb(5, 242, 222) solid;
     width: 100%;
     display: flex;
 }
@@ -24,7 +25,7 @@ body {
 
 .header a {
     text-decoration: none;
-    color: rgb(119, 239, 0);
+    color: rgb(5, 242, 222);
 }
 
 .agora {
@@ -40,7 +41,7 @@ body {
 }
 
 .titulo {
-    color: rgb(119, 239, 0);
+    color: white;
     width: fit-content;
     font-weight: 500;
 }
@@ -48,9 +49,11 @@ body {
 .banner {
     display: flex;
     height: fit-content;
-    padding: 40px 0;
+    padding: 0;
     color: black;
     background-size: cover;
+    background-image: url(../imagem/Design\ sem\ nome.jpg) ;
+    height: 800px;
 }
 .banner .img{
     display: flex;
@@ -80,10 +83,19 @@ body {
 
     font-weight: 800;
 }
-.social{
+.pg1{
+    display: flex;
+    height: fit-content;
+    padding: 0;
+    color: black;
+    background-size: cover;
+    background-image: url(../imagem/fundo.jpg) ;
+    height: 800px;   
+}
+.footer{
     display: flex;
     width: 100%;
-    background-color:rgb(60, 99, 157);
+    background-color:black;
     color:  rgb(119, 239, 0);
     height: 190px;
     justify-content: center;
