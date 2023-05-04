@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 100%;
     margin: auto;
     display: flex;
 }
@@ -51,9 +51,12 @@ body {
     height: fit-content;
     padding: 0;
     color: black;
-    background-size: cover;
-    background-image: url(../imagem/Design\ sem\ nome.jpg) ;
-    height: 800px;
+    background-image: url(../imagem/jogadores-de-futebol-em-acao-no-estadio-profissional.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-x:center;
+    background-position-y: bottom;
+    height: 87vh;
 }
 .banner .img{
     display: flex;
@@ -89,7 +92,6 @@ body {
     padding: 0;
     color: black;
     background-size: cover;
-    background-image: url(../imagem/fundo.jpg) ;
     height: 800px;   
 }
 .footer{
