@@ -18,6 +18,10 @@ body {
     width: 100%;
     display: flex;
 }
+.logo img{
+    height: 130px;
+    width: 130px;
+}
 
 .header .container {
     justify-content: space-between;
@@ -54,7 +58,7 @@ body {
     color: black;
     background-size: cover;
     height: 100vh;
-    width: 100vw;
+    width:99.1vw;
 }
 .banner .img{
     display: flex;
