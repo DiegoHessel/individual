@@ -73,11 +73,20 @@ body {
     align-items: center;
     flex-direction: column;
     background-color: rgb(8, 114, 40);
+    background-color: rgb(8, 114, 40);
+    border-radius: 1.2rem;
 }
-.banner .container span {
 
-    font-weight: 800;
+input {
+    border-color: white;
+    border-radius: 0.4rem;
 }
+
+button {
+
+    border-radius: 0.4rem;
+}
+
 .footer{
     display: flex;
     width: 100%;

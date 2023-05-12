@@ -55,7 +55,7 @@ body {
 .banner {
     display: flex;
     padding: 0;
-    color: black;
+    color: white;
     background-size: cover;
     height: 100vh;
     width: 100%;
