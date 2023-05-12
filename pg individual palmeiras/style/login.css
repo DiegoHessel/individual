@@ -40,21 +40,18 @@ body {
     list-style: none;
 }
 
-.titulo {
-    color: white;
-    width: fit-content;
-    font-weight: 500;
-}
-
 .banner {
     display: flex;
     height: fit-content;
     padding: 0;
-    color: black;
+    color: rgb(255, 255, 255);
     background-size: cover;
     background-image: url(../img/home.jpeg) ;
     height: 100vh;
     width:100%;
+      align-items: center;
+    justify-content: center;
+
 }
 .logo img{
     height: 130px;
@@ -69,13 +66,13 @@ body {
    top:370px;
     position: absolute;
 }
-
-.banner p {
-    height: fit-content;
-    margin: 0;
-    padding: 0;
-    width: 280px;
-
+.validarconta{
+    width: 18rem;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(8, 114, 40);
 }
 .banner .container span {
 
@@ -88,6 +85,6 @@ body {
     color:  rgb(247, 247, 247);
     height: 190px;
     justify-content: center;
-    align-items:center ;
+    align-items:center;
 flex-direction:column;
 }
