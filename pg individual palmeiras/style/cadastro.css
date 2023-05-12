@@ -14,11 +14,12 @@ body {
 
 .header {
     background-color: rgb(8, 114, 40);
-    border-bottom: 2px  white sJolid;
+    border-bottom: 2px white sJolid;
     width: 100%;
     display: flex;
 }
-.logo img{
+
+.logo img {
     height: 130px;
     width: 130px;
 }
@@ -30,7 +31,7 @@ body {
 
 .header a {
     text-decoration: none;
-    color:white;
+    color: white;
 }
 
 .agora {
@@ -53,14 +54,17 @@ body {
 
 .banner {
     display: flex;
-    height: fit-content;
     padding: 0;
     color: black;
     background-size: cover;
     height: 100vh;
-    width:100%
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
 }
-.banner .img{
+
+.banner .img {
     display: flex;
     width: 200px;
     height: 200px;
@@ -71,8 +75,8 @@ body {
     height: 600px;
     font-size: 12px;
     align-items: left;
-   left: 100px;
-   top:370px;
+    left: 100px;
+    top: 370px;
     position: absolute;
 }
 
@@ -81,19 +85,36 @@ body {
     margin: 0;
     padding: 0;
     width: 280px;
+}
+
+.conf_conta {
+    width: 18rem;
+    height: 24.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(8, 114, 40);
+    border-radius: 1.2rem;
 
 }
-.banner .container span {
 
-    font-weight: 800;
+input {
+    border-color: white;
+    border-radius: 0.4rem;
 }
-.footer{
+
+button {
+
+    border-radius: 0.4rem;
+}
+
+.footer {
     display: flex;
     width: 100%;
     background-color: rgb(8, 114, 40);
-    color:  rgb(247, 247, 247);
+    color: rgb(247, 247, 247);
     height: 190px;
     justify-content: center;
-    align-items:center ;
-flex-direction:column;
+    align-items: center;
+    flex-direction: column;
 }
