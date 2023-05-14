@@ -2,23 +2,23 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Courier New', Geneva, sans-serif;
-    background-size: cover;
+    /* overflow-x: hidden; */
 }
 
 .container {
-    width: 80%;
-    margin: auto;
+    width: 100%;
+    padding: 0 2vw;
     display: flex;
 }
 
 .logo img {
-    height: 130px;
-    width: 130px;
+    height: 100px;
+    width: 100px;
 }
 
 .header {
     background-color: rgb(8, 114, 40);
-    border-bottom: 2px white solid;
+    border-bottom: 2px rgb(0, 0, 0) solid;
     width: 100%;
     display: flex;
 }
@@ -51,16 +51,33 @@ body {
     font-weight: 500;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+
+}
+
+.sessao1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 2.5vw;
+    justify-content: space-between;
+    background-image: url(../img/home.jpeg);
+    background-size:100%;
+    background-position-y:35%;
+}
+
 .banner {
     display: flex;
     flex-direction: column;
-    padding: 0;
     color: white;
-    background-size: cover;
-    background-image: url(../img/home.jpeg);
-    height: 90vh;
-    width: 100%;
+    width: 45%;
     text-align: center;
+    padding: 1.5rem;
+    gap: 1vw;
 }
 
 .banner .img {
@@ -71,95 +88,50 @@ body {
 }
 
 .banner .container {
-
     height: 600px;
     font-size: 12px;
     align-items: left;
-    left: 100px;
-    top: 370px;
-    position: absolute;
 }
 
 .banner p {
     justify-content: center;
     text-align: center;
     height: fit-content;
-    background-color: rgb(8, 114, 40);
     margin: 0;
     padding: 0;
-    width: 1000px;
+
+  
+}
+
+.imgescudo {
+    width: 150px;
+    height: 150px;
 
 }
 
-.banner .palestra_italia {
-    width: 100%;
-    height: 13rem;
-}
-
-.img1 {
+.txt_escudo {
+    background-color: rgb(8, 114, 40);
+    border-radius: 2rem;
     display: flex;
-    width: 200px;
-    height: 200px;
-
-}
-
-.txt_escudo1 {
-    display: flex;
-    margin-top: 1.5rem;
-    left: 15rem;
+    padding: 10px;
+    justify-content: center;
+    width: 80%;
     text-align: center;
-    font-size: 20px;
-
-    position: absolute;
+    font-size: 17px;
 }
 
-.banner .palestra_sp {
-    width: 100%;
-    height: 13rem;
-}
-
-.img2 {
-    display: flex;
-    width: 200px;
-    height: 200px;
-
-}
-
-.txt_escudo2 {
-    display: flex;
-    margin-top: 1.5rem;
-    left: 15rem;
-    text-align: center;
-    font-size: 20px;
-
-    position: absolute;
-}
-
-.banner .container span {
+.container span {
 
     font-weight: 800;
 }
 
-.banner .palmeiras {
+.linha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 13rem;
-}
 
-.img3 {
-    display: flex;
-    width: 200px;
-    height: 200px;
-
-}
-
-.txt_escudo3 {
-    display: flex;
-    margin-top: 1.5rem;
-    left: 15rem;
-    text-align: center;
-    font-size: 20px;
-    display: flex;
-    position: absolute;
 }
 
 .footer {
@@ -167,7 +139,6 @@ body {
     width: 100%;
     background-color: rgb(8, 114, 40);
     color: rgb(247, 247, 247);
-    height: 190px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
