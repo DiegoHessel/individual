@@ -2,19 +2,23 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Courier New', Geneva, sans-serif;
-    background-image: url(../img/jogo.jpeg);
-    background-size: cover;
+    /* overflow-x: hidden; */
 }
 
 .container {
-    width: 80%;
-    margin: auto;
+    width: 100%;
+    padding: 0 2vw;
     display: flex;
+}
+
+.logo img {
+    height: 100px;
+    width: 100px;
 }
 
 .header {
     background-color: rgb(8, 114, 40);
-    border-bottom: 2px  white solid;
+    border-bottom: 2px rgb(0, 0, 0) solid;
     width: 100%;
     display: flex;
 }
@@ -26,7 +30,7 @@ body {
 
 .header a {
     text-decoration: none;
-    color:white;
+    color: rgb(255, 255, 255);
 }
 
 .agora {
@@ -47,47 +51,97 @@ body {
     font-weight: 500;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+
+}
+
+.sessao02{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 2.5vw;
+    justify-content: space-between;
+   background-color: rgb(8, 114, 40); ;
+}
 .banner {
     display: flex;
-    height: fit-content;
-    padding: 0;
-    color: black;
-    background-size: cover;
-    height: 100vh;
+    flex-direction: column;
+    color: white;
     width: 100%;
+    text-align: center;
+    padding: 1.5rem;
+    gap: 1vw;
 }
-.logo img{
-    height: 130px;
-    width: 130px;
-}
+
 
 .banner .container {
     height: 600px;
     font-size: 12px;
     align-items: left;
-   left: 100px;
-   top:370px;
-    position: absolute;
 }
 
 .banner p {
+    justify-content: center;
+    text-align: center;
     height: fit-content;
     margin: 0;
     padding: 0;
-    width: 280px;
+
+  
+}
+
+.sobre {
+    width: 300px;
+    height: 250px;
 
 }
-.banner .container span {
+
+.sobre2 {
+    width: 300px;
+    height: 350px;
+
+}
+.sobre3 {
+    width: 300px;
+    height: 280px;
+
+}
+.txt_escudo {
+    background-color: rgb(8, 114, 40);
+    border-radius: 2rem;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    width: 80%;
+    text-align: center;
+    font-size: 17px;
+}
+
+.container span {
 
     font-weight: 800;
 }
-.footer{
+
+.linha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+
+.footer {
     display: flex;
     width: 100%;
+    
     background-color: rgb(8, 114, 40);
-    color:  rgb(247, 247, 247);
-    height: 190px;
+    color: rgb(247, 247, 247);
     justify-content: center;
-    align-items:center ;
-flex-direction:column;
+    align-items: center;
+    flex-direction: column;
 }
