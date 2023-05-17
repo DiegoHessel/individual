@@ -37,7 +37,7 @@
         <div class="conf_conta"><br>
             NOME:<input id="input_Nome" placeholder="nome"><br>
             IDADE:<input id="input_Idade" placeholder="idade"><br>
-            MAIOR IDULODO PALMEIRAS? <input id="input_idulo" placeholder="idulo"><br>
+            MAIOR IDoLO DO PALMEIRAS? <input id="input_idolo" placeholder="idulo"><br>
             EMAIL: <input id="input_email" placeholder="email"><br>
             SENHA: <input id="input_senha" placeholder="senha" type="password"><br>
            CONFIRMAR SEMHA: <input id="input_Conf_senha" placeholder="confirmação de senha" type="password"><br>
@@ -54,5 +54,67 @@
 </body>
 </html>
 <script>
-    
+    function conta(){
+  var nome = input_Nome.value
+  var idade = input_Idade.value
+  var idolo = input_idolo.value
+  var email = input_email.value
+  var senha = input_senha.value
+  var confirmar_senha = input_Conf_senha.value
+  
+  
+  if (nome == "" || email == "" || senha == "" || confirmar_senha == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
 </script>
