@@ -108,7 +108,16 @@ main {
     height: 150px;
 
 }
+.imgjogador {
+    width: 150px;
+    height: 200px;
 
+}
+.imgjogador1 {
+    width: 150px;
+    height: 150px;
+
+}
 .txt_escudo {
     background-color: rgb(8, 114, 40);
     border-radius: 2rem;
@@ -119,7 +128,15 @@ main {
     text-align: center;
     font-size: 17px;
 }
+.txt_jogador{
+    background-color: rgb(8, 114, 40);
+    border-radius: 2rem;
+    display: flex;
+    padding: 10px;
 
+    width: rem;
+    font-size: 17px;
+}
 .container span {
 
     font-weight: 800;
@@ -129,6 +146,14 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+.linha2 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
 
