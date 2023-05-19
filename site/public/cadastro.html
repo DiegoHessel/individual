@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/cadastro.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="./assets/imgs/palmeirasLogo.png">
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="./index.html" class="agora">inicio</a>
+                </li>
+                <li>
+                    <a href="./sobre.html">sobre mim </a>
+                </li>
+                <li>
+                    <a href="./login.html">login</a>
+                </li>
+
+                <li>
+                    <a href="./cadastro.html">cadastro</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="banner">
+        <div class="conf_conta"><br>
+            NOME:<input id="input_Nome" placeholder="nome"><br>
+            IDADE:<input id="input_Idade" placeholder="idade"><br>
+            MAIOR IDOLO DO PALMEIRAS? <select id="select_idolo">
+
+                <option value="1"> DUDU</option>
+                <option value="2">WEVERTON</option>
+                <option value="3">RAPHAEL VEIGA</option>
+                <option value="4">GUSTAVO SCARPA</option>
+                <option value="5">GUSTAVO GOMEZ</option>
+                <option value="6">FERNANDO PRASS</option>
+                <option value="7">MARCOS</option>
+                <option value="8">ZÉ ROBERTO</option>
+                <option value="9">VALDIVIA</option>
+                <option value="10">MARCOS ASSUNÇÃO</option>
+                <option value="11">EDMUNDO</option>
+                <option value="12">ALEX</option>
+            </select>
+
+            EMAIL: <input id="input_email" placeholder="email"><br>
+            SENHA: <input id="input_senha" placeholder="senha" type="password"><br>
+           CONFIRMAR SEMHA: <input id="input_Conf_senha" placeholder="confirmação de senha" type="password"><br>
+            <button onclick="cadastrar()">Entrar</button><br>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Feito com amor por um aluno ♥ SPTech © 2023</p>
+        <p>v1.0.0</p>
+        <P>Contato<br>
+            email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
+        </P>
+    </div>
+</body>
+</html>
+<script>
+    function cadastrar(){
+  var nome = input_Nome.value
+  var idade = input_Idade.value
+  var idolo = select_idolo.value
+  var email = input_email.value
+  var senha = input_senha.value
+  var confirmar_senha = input_Conf_senha.value
+  
+  
+  if (nome == "" || email == "" || senha == "" || confirmar_senha == "") {
+          
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval('alters', 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nome,
+                idadeServer:idade,
+                emailServer: email,
+                senhaServer: senha,
+                iduloServer: idolo
+            })
+
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, 2000)
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+</script>

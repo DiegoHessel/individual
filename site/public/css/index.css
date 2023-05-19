@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Geneva, sans-serif;
+    /* overflow-x: hidden; */
+}
+
+.container {
+    width: 100%;
+    padding: 0 2vw;
+    display: flex;
+}
+
+.logo img {
+    height: 100px;
+    width: 100px;
+}
+
+.header {
+    background-color: rgb(8, 114, 40);
+    border-bottom: 2px rgb(0, 0, 0) solid;
+    width: 100%;
+    display: flex;
+}
+
+.header .container {
+    justify-content: space-between;
+
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+}
+
+.agora {
+    font-weight: 800px;
+}
+
+.navbar {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.titulo {
+    color: white;
+    width: fit-content;
+    font-weight: 500;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+
+}
+
+.sessao1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 2.5vw;
+    justify-content: space-between;
+    background-image: url(../assets/imgs/home.jpeg);
+    background-size:100%;
+
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 45%;
+    text-align: center;
+    padding: 1.5rem;
+    gap: 1vw;
+}
+
+.banner .img {
+    display: flex;
+    width: 200px;
+    height: 200px;
+
+}
+
+.banner .container {
+    height: 600px;
+    font-size: 12px;
+    align-items: left;
+}
+
+.banner p {
+    justify-content: center;
+    text-align: center;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+
+  
+}
+
+.imgescudo {
+    width: 150px;
+    height: 150px;
+
+}
+.imgjogador {
+    width: 150px;
+    height: 200px;
+
+}
+.imgjogador1 {
+    width: 150px;
+    height: 150px;
+
+}
+.txt_escudo {
+    background-color: rgb(8, 114, 40);
+    border-radius: 2rem;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    width: 80%;
+    text-align: center;
+    font-size: 17px;
+}
+.txt_jogador{
+    background-color: rgb(8, 114, 40);
+    border-radius: 2rem;
+    display: flex;
+    padding: 10px;
+
+    width: rem;
+    font-size: 17px;
+}
+.container span {
+
+    font-weight: 800;
+}
+
+.linha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+.linha2 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+}
+
+.footer {
+    display: flex;
+    width: 100%;
+    background-color: rgb(8, 114, 40);
+    color: rgb(247, 247, 247);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
