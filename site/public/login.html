@@ -36,7 +36,7 @@
         <h1> LOGIN</h1>
         EMAIL: <input id="input_email" placeholder="email"><br>
    SENHA: <input id="input_senha" placeholder="senha" type="password"><br>
-        <button onclick="conta()"> Entrar</button>
+        <button onclick="entrar()">Entrar</button>
     </div>
     <div id="pg_login"></div>
 </div>
@@ -50,13 +50,69 @@
 </body>
 </html>
 <script>
-function conta(){
-    var email = input_email.value;
-    var senha = input_senha.value;
+function entrar() {
 
-    if(email==email&&senha== senha){
-        pg_login.innerHTML+= `entrar`
+
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+
+    if (emailVar == "" || senhaVar == "") {
+     
+        finalizarAguardar();
+        return false;
     }
+    else {
+        setInterval(sumirMensagem, 5000)
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+
+                setTimeout(function () {
+                    window.location = "./dashboard/deshboard.html";
+
+                }, 1000); // apenas para exibir o loading
+
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizarAguardar(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
 }
 
-</script>
+</script> 
