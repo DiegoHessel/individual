@@ -162,6 +162,7 @@ main {
 .footer {
     display: flex;
     width: 100%;
+    
     background-color: rgb(8, 114, 40);
     color: rgb(247, 247, 247);
     justify-content: center;

@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/dashboard.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="../assets/imgs/palmeirasLogo.png">
-             
-            </div>
-            <ul class="navbar">
-                <li>
-                    <a href="./index.html" class="agora">inicio</a>
-                </li>
-                <li>
-                    <a href="./sobre.html">sobre mim </a>
-                </li>
-                <li>
-                    <a href="./login.html">login</a>
-                </li>
-
-                <li>
-                    <a href="./cadastro.html">cadastro</a>
-                </li>
-            </ul>
-
+      <div class="container">
+        <div class="logo">
+          <img src="../assets/imgs/palmeirasLogo.png" />
         </div>
+        <ul class="navbar">
+          <li>
+            <a href="./index.html" class="agora">inicio</a>
+          </li>
+          <li>
+            <a href="./sobre.html">sobre mim </a>
+          </li>
+          <li>
+            <a href="./login.html">login</a>
+          </li>
+
+          <li>
+            <a href="./cadastro.html">cadastro</a>
+          </li>
+        </ul>
+      </div>
     </div>
     <main>
-    <div class="banner">
+      <div class="banner">
+        <div class="grafico">
         <div>
-            <canvas id="myChart" style="position: relative; height: 50% ; width: 50%;"></canvas>
-          </div>
-          
-          <script>
-            const ctx = document.getElementById('myChart');
-          
+          <canvas
+            id="myChart"
+            style="position: relative; height: 50%; width: 50%"
+          ></canvas>
+        </div>
 
-            
-            new Chart(ctx, {
-              type: 'bar',
-              data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                  label: '# Cof Votes',
-                  data: [12, 19, 3, 5, 2, 3],
-                  borderWidth: 1
+        <script>
+          const ctx = document.getElementById("myChart");
 
-                }]
-              },
-              options: {
-                scales: {
-                  y: {
-                    beginAtZero: true
-                  }
-                }
-              }
-            });
-            
-          
-
-          </script>
-
-
-    </div>
-    <div class="banner">
-      <div>
-        <canvas id="myChart2"  style="position: relative; height: 50% ; width: 50%;"></canvas>
-      </div>
-      <script>
-      const ctx2 = document.getElementById('myChart2');
-          
-
-            
-          new Chart(ctx2, {
-            type: 'bar',
+          new Chart(ctx, {
+            type: "bar",
             data: {
-              labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-              datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-                
-              }]
+              labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+              datasets: [
+                {
+                  label: "# Cof Votes",
+                  data: [12, 19, 3, 5, 2, 3],
+                  borderWidth: 1,
+                },
+              ],
             },
             options: {
               scales: {
                 y: {
-                  beginAtZero: true
-                }
-              }
-            }
+                  beginAtZero: true,
+                },
+              },
+            },
           });
         </script>
+      </div>
+      <div class="banner">
+        <div class="grafico">
+        <div>
+          <canvas
+            id="myChart2"
+            style="position: relative; height: 50%; width: 50%"
+          ></canvas>
+        </div>
+        <script>
+          const ctx2 = document.getElementById("myChart2");
+
+          new Chart(ctx2, {
+            type: "bar",
+            data: {
+              labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+              datasets: [
+                {
+                  label: "# of Votes",
+                  data: [12, 19, 3, 5, 2, 3],
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+              },
+            },
+          });
+        </script>
+        </div>
+      </div>
     </div>
     </main>
     <div class="footer">
-        <p>Feito com amor por um aluno ♥ SPTech © 2023</p>
-        <p>v1.0.0</p>
-        <P>Contato<br>
-            email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
-        </P>
+      <p>Feito com amor por um aluno ♥ SPTech © 2023</p>
+      <p>v1.0.0</p>
+      <p>
+        Contato<br />
+        email: diego.verdi@sptech.school<br />
+        celular: (11) 97119-5642
+      </p>
     </div>
-
-</body>
-
+  </body>
 </html>
