@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/quiz.css">
 </head>
 
 <body>
@@ -14,21 +15,21 @@
         <div class="header">
             <div class="container">
                 <div class="logo">
-                    <img src="./assets/imgs/palmeirasLogo.png" />
+                    <img src="../assets/imgs/palmeirasLogo.png" />
                 </div>
                 <ul class="navbar">
                     <li>
-                        <a href="./index.html" class="agora">inicio</a>
+                        <a href="../index.html" class="agora">inicio</a>
                     </li>
                     <li>
-                        <a href="./sobre.html">sobre mim </a>
+                        <a href="../sobre.html">sobre mim </a>
                     </li>
                     <li>
-                        <a href="./login.html">login</a>
+                        <a href="../dashboard/quiz.html">Quiz</a>
                     </li>
 
                     <li>
-                        <a href="./cadastro.html">cadastro</a>
+                        <a href="../dashboard/deshboard.html">Dashboard</a>
                     </li>
                 </ul>
             </div>
@@ -36,9 +37,11 @@
         <main>
             <div class="sessao1">
                 <div class="banner">
-                    <button onclick="jogo()">jogar</button>
+                    <button onclick="jogo()">Sortear sua carreira</button>
                     <div id="mostrar"></div>
-                    <img src="" alt="" id="imagem">
+
+
+
     </body>
 
 </html>
@@ -55,33 +58,37 @@
     var img10 = `../assets/imgs/assuncao.jpg`
     var img11 = `../assets/imgs/edmundo.jpg`
     var img12 = `../assets/imgs/ALEX.jpg`
+
+    var sorteio_img = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
+
+    var posição = ["Goleiro", "Zagueiro", "Volante", "Meia", "Ponta Direita", "Ponta Esquerda"]
+    var gol = [86, 0, 75, 44, 31, 1, 0, 10, 41, 31, 99, 76]
+    var titulo = [11, , 10, 9, 8, 10, 4, 12, 2, 4, 1, 5, 4]
+    var jogos = [427, 295, 231, 230, 243, 274, 533, 133, 241, 145, 223, 243]
+
     function jogo() {
+
         mostrar.innerHTML = ""
 
-        var sorteio1 = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
+        if (sorteio_img.length > 0) {
+            var num_img = parseInt(Math.random() * sorteio_img.length);
+            mostrar.innerHTML += `<img src="${sorteio_img[num_img]}" alt="" id="imagem"> `
 
-        var posição = ["goleiro", "zagueiro", "volante", "meia", "ponta direita", "ponta esquerda"]
-        var gol = [86, 0, 75, 44, 31, 1, 0, 10, 41, 31, 99, 76]
-        var titulo = [11, , 10, 9, 8, 10, 4, 12, 2, 4, 1, 5, 4]
-        var jogos = [427, 295, 231, 230, 243, 274, 533, 133, 241, 145, 223, 243]
-        if (sorteio1.length > 0) {
-            var num = parseInt(Math.random() * sorteio1.length);
-            imagem.src = `${sorteio1[num]}`
             if (posição.length > 0) {
                 var pos = parseInt(Math.random() * posição.length);
-                mostrar.innerHTML += `${posição[pos]}`
+                mostrar.innerHTML += `Posição:${posição[pos]}`
 
                 if (gol.length > 0) {
                     var qtd_gols = parseInt(Math.random() * gol.length);
-                    mostrar.innerHTML += `<br> ${gol[qtd_gols]}`
+                    mostrar.innerHTML += `<br> Quantos gols:${gol[qtd_gols]}`
 
                     if (titulo.length > 0) {
                         var qtd_titulo = parseInt(Math.random() * titulo.length);
-                        mostrar.innerHTML += `<br> ${titulo[qtd_titulo]}`
+                        mostrar.innerHTML += `<br> Quantidade de titulos: ${titulo[qtd_titulo]}`
 
                         if (jogos.length > 0) {
                             var qtd_jogos = parseInt(Math.random() * jogos.length);
-                            mostrar.innerHTML += `<br> ${jogos[qtd_jogos]}`
+                            mostrar.innerHTML += `<br> Quantidade de jogos:${jogos[qtd_jogos]}`
                         }
                     }
                 }

@@ -5,6 +5,16 @@ body {
     /* overflow-x: hidden; */
 }
 
+h1 {
+    text-align: left;
+    color: rgb(255, 0, 0);
+}
+
+h2 {
+    text-align: center;
+    color: rgb(255, 8, 0);
+}
+
 .container {
     width: 100%;
     padding: 0 2vw;
@@ -59,14 +69,14 @@ main {
 
 }
 
-.sessao1{
+.sessao1 {
     display: flex;
     flex-direction: row;
     width: 100%;
     gap: 2.5vw;
     justify-content: space-between;
     background-image: url(../assets/imgs/home.jpeg);
-    background-size:100%;
+    background-size: 100%;
 
 }
 
@@ -100,7 +110,7 @@ main {
     margin: 0;
     padding: 0;
 
-  
+
 }
 
 .imgescudo {
@@ -108,16 +118,19 @@ main {
     height: 150px;
 
 }
+
 .imgjogador {
     width: 150px;
     height: 200px;
 
 }
+
 .imgjogador1 {
     width: 150px;
     height: 150px;
 
 }
+
 .txt_escudo {
     background-color: rgb(8, 114, 40);
     border-radius: 2rem;
@@ -128,7 +141,8 @@ main {
     text-align: center;
     font-size: 17px;
 }
-.txt_jogador{
+
+.txt_jogador {
     background-color: rgb(8, 114, 40);
     border-radius: 2rem;
     display: flex;
@@ -137,6 +151,7 @@ main {
     width: rem;
     font-size: 17px;
 }
+
 .container span {
 
     font-weight: 800;
@@ -150,6 +165,7 @@ main {
     width: 100%;
 
 }
+
 .linha2 {
     display: flex;
     flex-direction: row-reverse;
@@ -162,7 +178,7 @@ main {
 .footer {
     display: flex;
     width: 100%;
-    
+
     background-color: rgb(8, 114, 40);
     color: rgb(247, 247, 247);
     justify-content: center;
