@@ -46,7 +46,7 @@
     <P>Contato<br>
         email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
     </P></div>
-  
+
 </body>
 </html>
 <script>
@@ -58,8 +58,8 @@ function entrar() {
 
     if (emailVar == "" || senhaVar == "") {
      
-        finalizarAguardar();
-        return false;
+        // finalizarAguardar();
+        // return false;
     }
     // else {
     //     setInterval(sumirMensagem, 5000)
@@ -103,8 +103,8 @@ function entrar() {
             console.log("Houve um erro ao tentar realizar o login!");
 
             resposta.text().then(texto => {
-                console.error(texto);
-                finalizarAguardar(texto);
+                // console.error(texto);
+                // finalizarAguardar(texto);
             });
         }
 

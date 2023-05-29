@@ -61,14 +61,24 @@ main {
 .sessao1 {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 50%;
     gap: 2.5vw;
     justify-content: space-between;
     background-color: rgb(8, 114, 40);
     background-size: 100%;
-
+ 
 }
 
+.sessao2 {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    gap: 2.5vw;
+    justify-content: space-between;
+    background-color: rgb(8, 114, 40);
+    background-size: 100%;
+ 
+}
 .banner {
     display: flex;
     color: white;
@@ -103,4 +113,14 @@ button {
     height: fit-content;
     margin: 0;
     padding: 0;
+}
+.footer {
+    display: flex;
+    width: 100%;
+    border-top: 2px rgb(0, 0, 0) solid;
+    background-color: rgb(8, 114, 40);
+    color: rgb(247, 247, 247);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

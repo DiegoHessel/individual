@@ -138,7 +138,7 @@ main {
 .footer {
     display: flex;
     width: 100%;
-    
+    border-top: 2px rgb(0, 0, 0) solid;
     background-color: rgb(8, 114, 40);
     color: rgb(247, 247, 247);
     justify-content: center;

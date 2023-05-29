@@ -36,63 +36,82 @@
         </div>
         <main>
             <div class="sessao1">
-                <div class="banner">
+            <div class="banner">
+                
                     <button onclick="jogo()">Sortear sua carreira</button>
                     <div id="mostrar"></div>
 
+                    <script>
+                        var img1 = `../assets/imgs/dudus.jpg`
+                        var img2 = `../assets/imgs/weverton-palmeiras.jpg`
+                        var img3 = `../assets/imgs/vriga.jpg `
+                        var img4 = `../assets/imgs/scarp.jpg`
+                        var img5 = `../assets/imgs/gomez.jpg`
+                        var img6 = `../assets/imgs/prass.jpg`
+                        var img7 = `../assets/imgs/marcos.jpg`
+                        var img8 = `../assets/imgs/zé.jpg`
+                        var img9 = `../assets/imgs/valdivia.jpg`
+                        var img10 = `../assets/imgs/assuncao.jpg`
+                        var img11 = `../assets/imgs/edmundo.jpg`
+                        var img12 = `../assets/imgs/ALEX.jpg`
+
+                        var sorteio_img = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
+
+                        var posição = ["Goleiro", "Zagueiro", "Volante", "Meia", "Ponta Direita", "Ponta Esquerda"]
+                        var gol = [86, 0, 75, 44, 31, 1, 0, 10, 41, 31, 99, 76]
+                        var titulo = [11, 10, 9, 8, 10, 4, 12, 2, 4, 1, 5, 4]
+                        var jogos = [427, 295, 231, 230, 243, 274, 533, 133, 241, 145, 223, 243]
+
+                        function jogo() {
+
+                            mostrar.innerHTML = ""
+
+                            if (sorteio_img.length > 0) {
+                                var num_img = parseInt(Math.random() * sorteio_img.length);
+                                mostrar.innerHTML += `Historia para o clube: 
+            <img src="${sorteio_img[num_img]}" alt="" id="imagem"> `
+
+                                if (posição.length > 0) {
+                                    var pos = parseInt(Math.random() * posição.length);
+                                    mostrar.innerHTML += `Posição:${posição[pos]}`
+
+                                    if (gol.length > 0) {
+                                        var qtd_gols = parseInt(Math.random() * gol.length);
+                                        mostrar.innerHTML += `<br> Quantos gols:${gol[qtd_gols]}`
+
+                                        if (titulo.length > 0) {
+                                            var qtd_titulo = parseInt(Math.random() * titulo.length);
+                                            mostrar.innerHTML += `<br> Quantidade de titulos: ${titulo[qtd_titulo]}`
+
+                                            if (jogos.length > 0) {
+                                                var qtd_jogos = parseInt(Math.random() * jogos.length);
+                                                mostrar.innerHTML += `<br> Quantidade de jogos:${jogos[qtd_jogos]}`
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="sessao2">
+<div class="banner">
 
 
+</div>
+</div>
+
+        </main>
+        <div class="footer">
+            <p>Feito com amor por um aluno ♥ SPTech © 2023</p>
+            <p>v1.0.0</p>
+            <p>
+                Contato<br />
+                email: diego.verdi@sptech.school<br />
+                celular: (11) 97119-5642
+            </p>
+        </div>
     </body>
 
 </html>
-<script>
-    var img1 = `../assets/imgs/dudus.jpg`
-    var img2 = `../assets/imgs/weverton-palmeiras.jpg`
-    var img3 = `../assets/imgs/vriga.jpg `
-    var img4 = `../assets/imgs/scarp.jpg`
-    var img5 = `../assets/imgs/gomez.jpg`
-    var img6 = `../assets/imgs/prass.jpg`
-    var img7 = `../assets/imgs/marcos.jpg`
-    var img8 = `../assets/imgs/zé.jpg`
-    var img9 = `../assets/imgs/valdivia.jpg`
-    var img10 = `../assets/imgs/assuncao.jpg`
-    var img11 = `../assets/imgs/edmundo.jpg`
-    var img12 = `../assets/imgs/ALEX.jpg`
-
-    var sorteio_img = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
-
-    var posição = ["Goleiro", "Zagueiro", "Volante", "Meia", "Ponta Direita", "Ponta Esquerda"]
-    var gol = [86, 0, 75, 44, 31, 1, 0, 10, 41, 31, 99, 76]
-    var titulo = [11, , 10, 9, 8, 10, 4, 12, 2, 4, 1, 5, 4]
-    var jogos = [427, 295, 231, 230, 243, 274, 533, 133, 241, 145, 223, 243]
-
-    function jogo() {
-
-        mostrar.innerHTML = ""
-
-        if (sorteio_img.length > 0) {
-            var num_img = parseInt(Math.random() * sorteio_img.length);
-            mostrar.innerHTML += `<img src="${sorteio_img[num_img]}" alt="" id="imagem"> `
-
-            if (posição.length > 0) {
-                var pos = parseInt(Math.random() * posição.length);
-                mostrar.innerHTML += `Posição:${posição[pos]}`
-
-                if (gol.length > 0) {
-                    var qtd_gols = parseInt(Math.random() * gol.length);
-                    mostrar.innerHTML += `<br> Quantos gols:${gol[qtd_gols]}`
-
-                    if (titulo.length > 0) {
-                        var qtd_titulo = parseInt(Math.random() * titulo.length);
-                        mostrar.innerHTML += `<br> Quantidade de titulos: ${titulo[qtd_titulo]}`
-
-                        if (jogos.length > 0) {
-                            var qtd_jogos = parseInt(Math.random() * jogos.length);
-                            mostrar.innerHTML += `<br> Quantidade de jogos:${jogos[qtd_jogos]}`
-                        }
-                    }
-                }
-            }
-        }
-    }
-</script>
