@@ -129,3 +129,6 @@ main {
     align-items: center;
     flex-direction: column;
 }
+.footer .footer_link i{
+font-size: 2rem;
+}

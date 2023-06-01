@@ -89,12 +89,12 @@ body {
 
 .conf_conta {
     width: 18rem;
-    height: 24.5rem;
+    height: 27rem;
     display: flex;
     align-items: center;
-    flex-direction: column;
     background-color: rgb(8, 114, 40);
-    border-radius: 1.2rem;
+    border-radius: 1.9rem;
+    flex-direction: column;
 
 }
 

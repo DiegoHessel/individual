@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/cadastro.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -37,13 +38,8 @@
         <div class="conf_conta"><br>
             NOME:<input id="input_Nome" placeholder="nome"><br>
             IDADE:<input id="input_Idade" placeholder="idade"><br>
-            QUAL FOI O ESCUDO MAIS BONITO?? <select id="select_idolo">
+            QUAL ESCUDO MAIS BONITO? <select id="select_escudo">
                 <option value="1"> Palestra Italia </option>
-                <option value="2">Palestra DE SÃO PAULO</option>
-                <option value="3">PALMEIRAS</option>
-            </select>
-            QUAL FOI A CAMISA MAIS BONITO?? <select id="select_idolo">
-                <option value="1"> CRUZ DE SAVOIA</option>
                 <option value="2">Palestra DE SÃO PAULO</option>
                 <option value="3">PALMEIRAS</option>
             </select>
@@ -66,7 +62,7 @@
 
             EMAIL: <input id="input_email" placeholder="email"><br>
             SENHA: <input id="input_senha" placeholder="senha" type="password"><br>
-           CONFIRMAR SEMHA: <input id="input_Conf_senha" placeholder="confirmação de senha" type="password"><br>
+            CONFIRMAR SEMHA: <input id="input_Conf_senha" placeholder="confirmação de senha" type="password"><br>
             <button onclick="cadastrar()">Entrar</button><br>
         </div>
     </div>
@@ -78,26 +74,35 @@
         </P>
     </div>
 </body>
+
 </html>
 <script>
-    function cadastrar(){
-  var nome = input_Nome.value
-  var idade = input_Idade.value
-  var idolo = select_idolo.value
-  var email = input_email.value
-  var senha = input_senha.value
-  var confirmar_senha = input_Conf_senha.value
-  
-  
-  if (nome == "" ||idade =="" ||idolo== "" || email == "" || senha == "" || confirmar_senha == "" ) {
-          
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval('alters', 5000)
-        }
+    function cadastrar() {
+        var nome = input_Nome.value
+        var idade = input_Idade.value
+        var escudo = select_escudo.value
+        var idolo = select_idolo.value
+        var email = input_email.value
+        var senha = input_senha.value
+        var confirmar_senha = input_Conf_senha.value
 
+
+        if (nome == "" || idade == "" || escudo == "" || idolo == "" || email == "" || senha == "" || confirmar_senha == "") {
+            Swal.fire('Preencha todos os campos')
+
+            return false;
+        } else if (nome.length < 3) {
+            Swal.fire('seu nome tem que ter no minimo 3 letras!!!')
+            return false;
+        } else if (email.indexOf("@") == -1 && email.indexOf(".com") == -1) {
+            Swal.fire(`email cadastrado é invalido!! <br> Para cadastrar é preciso que o email tenha @ e .com`)
+            return false;
+        } else if (senha != confirmar_senha) {
+            Swal.fire(`Os campos de senha e confirmar senha estão diferentes`)
+            return false;
+        } else {
+            setInterval('oi', 5000)
+        }
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -108,10 +113,11 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nome,
-                idadeServer:idade,
+                idadeServer: idade,
+                escudoServer: escudo,
+                iduloServer: idolo,
                 emailServer: email,
                 senhaServer: senha,
-                iduloServer: idolo
             })
 
         }).then(function (resposta) {
@@ -125,13 +131,13 @@
                 }, 2000)
 
                 limparFormulario();
-                finalizarAguardar();
+
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+
         });
 
         return false;

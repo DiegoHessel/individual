@@ -2,18 +2,20 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="./css/index.css"/>
+  <script src="./js/jogador.js"></script>
+  <link rel="stylesheet" href="./css/index.css" />
 </head>
 
 <body>
+  <div id="mostrar"></div>
   <div class="header">
     <div class="container">
       <div class="logo">
-        <img src="./assets/imgs/palmeirasLogo.png"/>
+        <img src="./assets/imgs/palmeirasLogo.png" />
       </div>
       <ul class="navbar">
         <li>
@@ -37,11 +39,11 @@
       <div class="banner">
         <h1>escudos</h1>
         <div class="linha">
-          <img class="imgescudo" src="./assets/imgs/escudo1.png" onclick="exibirTexto1()"/>
+          <img class="imgescudo" src="./assets/imgs/escudo1.png" onclick="exibirTexto1()" />
 
           <div id="texto1" class="txt_escudo" style="display: none;">
             <p>
-              1914 - Palestra Italia<br/>
+              1914 - Palestra Italia<br />
               Elaborado nos primeiros anos de vida do clube, era o símbolo
               institucional utilizado em impressos, carteiras sociais e na
               bandeira oficial. Na circunferência menor, de fundo branco,
@@ -51,10 +53,10 @@
               fundo vermelho, a inscrição “Italia”, em amarelo.
             </p>
           </div>
-          <img class="imgescudo" src="./assets/imgs/escudo2.png" onclick="exibirTexto2()"/>
+          <img class="imgescudo" src="./assets/imgs/escudo2.png" onclick="exibirTexto2()" />
           <div id="texto2" class="txt_escudo" style="display: none;">
             <p>
-              1942 - Palestra de São Paulo<br/>
+              1942 - Palestra de São Paulo<br />
 
               Símbolo provisório utilizado no período da mudança de nome. O
               centro da circunferência menor foi descolocado para baixo, com o
@@ -65,11 +67,11 @@
               em amarelo.
             </p>
           </div>
-          <img class="imgescudo" src="./assets/imgs/escudos3.png" onclick="exibirTexto3()"/>
+          <img class="imgescudo" src="./assets/imgs/escudos3.png" onclick="exibirTexto3()" />
 
           <div id="texto3" class="txt_escudo" style="display: none;">
             <p>
-              1942 - Palmeiras<br/>
+              1942 - Palmeiras<br />
               É o atual símbolo institucional e de camisa do clube. Na
               circunferência menor, de fundo branco, reapareceu o contorno da
               Cruz de Savoia, preenchido por 26 linhas alusivas ao dia de
@@ -82,10 +84,10 @@
         </div>
         <h1>camisas</h1>
         <div class="linha">
-          <img class="imgescudo" src="./assets/imgs/1916-3.png" onclick="exibirTexto4()"/>
+          <img class="imgescudo" src="./assets/imgs/1916-3.png" onclick="exibirTexto4()" />
           <div id="texto4" class="txt_escudo" style="display: none;">
             <p>
-              1916 - Cruz de Savoia<br/><br/>
+              1916 - Cruz de Savoia<br /><br />
               Para a disputa do Campeonato Paulista de 1916, a diretoria
               palestrina decidiu importar da Itália um jogo de camisa com o
               escudo da Cruz de Savoia, símbolo da Casa Real Italiana. O
@@ -94,10 +96,10 @@
             </p>
           </div>
 
-          <img class="imgescudo" src="./assets/imgs/escudo1942.png" onclick="exibirTexto5()"/>
+          <img class="imgescudo" src="./assets/imgs/escudo1942.png" onclick="exibirTexto5()" />
           <div id="texto5" class="txt_escudo" style="display: none;">
             <p>
-              1942 - Palestra de São Paulo<br/><br/>
+              1942 - Palestra de São Paulo<br /><br />
               O formato do distintivo passou a ser circular, orlado em branco
               em um fundo verde. No centro, a letra "P" (na cor branca). Esse
               foi o primeiro escudo na camisa do Palmeiras após a mudança de
@@ -105,10 +107,10 @@
             </p>
 
           </div>
-          <img class="imgescudo" src="./assets/imgs/escudos3.png" onclick="exibirTexto6()"/>
+          <img class="imgescudo" src="./assets/imgs/escudos3.png" onclick="exibirTexto6()" />
           <div id="texto6" class="txt_escudo" style="display: none;">
             <p>
-              1959 - Palmeiras<br/><br/>
+              1959 - Palmeiras<br /><br />
               O distintivo sofreu grande alteração. Na circunferência menor,
               de fundo branco, foi recolocado o contorno da Cruz de Savoia,
               preenchido por 26 linhas alusivas ao dia de fundação do clube e
@@ -122,148 +124,54 @@
         </div>
         <h1>idolos</h1>
         <div class="linha">
-          <img class="imgjogador" src="./assets/imgs/dudus.jpg" onclick="exibirTexto7()"/>
+          <img class="imgjogador" src="./assets/imgs/dudus.jpg" onclick="exibirTexto7()" />
           <div id="texto7" class="txt_jogador" style="display: none;">
-            <p>
-              nome: DUDU <br/>
-              idade:31 anos <br/>
-              titulos: 11 titulos<br/>
-              gols:86 <br/>
-              jogos pelo clube:427<br/>
-              posição: atacante
-            </p>
+
           </div>
-          <img class="imgjogador" src="./assets/imgs/weverton-palmeiras.jpg" onclick="exibirTexto8()"/>
+          <img class="imgjogador" src="./assets/imgs/weverton-palmeiras.jpg" onclick="exibirTexto8()" />
           <div id="texto8" class="txt_jogador" style="display: none;">
-            <p>
-              nome: WEVERTON <br/>
-              idade:35 anos <br/>
-              titulos: 10 titulos<br/>
-              gols:0<br/>
-              jogos pelo clube:295<br/>
-              posição: goleiro
-            </p>
           </div>
-          <img class="imgjogador" src="./assets/imgs/vriga.jpg" onclick="exibirTexto9()"/>
+
+          <img class="imgjogador" src="./assets/imgs/vriga.jpg" onclick="exibirTexto9()" />
           <div id="texto9" class="txt_jogador" style="display: none;">
-            <p>
-              nome: RAPHAEL VEIGA <br/>
-              idade:27 anos <br/>
-              titulos: 9 titulos<br/>
-              gols:75<br/>
-              jogos pelo clube:231<br/>
-              posição: meia
-            </p>
           </div>
         </div>
         <div class="linha">
-          <img class="imgjogador1" src="./assets/imgs/scarp.jpg" onclick="exibirTexto10()"/>
+          <img class="imgjogador" src="./assets/imgs/gscarpa.jpg" onclick="exibirTexto10()" />
           <div id="texto10" class="txt_jogador" style="display: none;">
-            <p>
-              nome: gustavo scarpa <br/>
-              idade:29 anos <br/>
-              titulos: 8 titulos<br/>
-              gols:44<br/>
-              jogos pelo clube: 230 <br/>
-              posição: meia
-            </p>
           </div>
-      
-          <img class="imgjogador" src="./assets/imgs/gomez.jpg" onclick="exibirTexto11()"/>
+
+          <img class="imgjogador" src="./assets/imgs/gomez.jpg" onclick="exibirTexto11()" />
           <div id="texto11" class="txt_jogador" style="display: none;">
-            <p>
-              nome: gustavo gomes <br/>
-              idade: 31 anos <br/>
-              titulos: 10 titulos<br/>
-              gols:31<br/>
-              jogos pelo clube: 243 <br/>
-              posição: zageiro
-            </p>
           </div>
 
-          <img class="imgjogador" src="./assets/imgs/prass.jpg" onclick="exibirTexto12()"/>
+          <img class="imgjogador" src="./assets/imgs/prass.jpg" onclick="exibirTexto12()" />
           <div id="texto12" class="txt_jogador" style="display: none;">
-            <p>
-              nome: fernando prass <br/>
-              idade: 44anos <br/>
-              titulos: 4titulos<br/>
-              gols:1<br/>
-              jogos pelo clube: 274 <br/>
-              posição: goleiro
-            </p>
           </div>
-      </div>
-      <div class="linha">
-          <img class="imgjogador" src="./assets/imgs/marcos.jpg" onclick="exibirTexto13()"/>
-          <div id="texto13"class="txt_jogador" style="display: none;">
-            <p>
-              nome: marcos <br/>
-              idade: 49anos <br/>
-              titulos: 12titulos<br/>
-              gols:0<br/>
-              jogos pelo clube: 533 <br/>
-              posição: goleiro
-            </p>
+        </div>
+        <div class="linha">
+          <img class="imgjogador" src="./assets/imgs/marcos.jpg" onclick="exibirTexto13()" />
+          <div id="texto13" class="txt_jogador" style="display: none;">
           </div>
-          <img class="imgjogador" src="./assets/imgs/zé.jpg" onclick="exibirTexto14()"/>
+          <img class="imgjogador" src="./assets/imgs/zé.jpg" onclick="exibirTexto14()" />
           <div id="texto14" class="txt_jogador" style="display: none;">
-            <p>
-              nome: Zé roberto<br/>
-              idade: 48anos <br/>
-              titulos: 2titulos<br/>
-              gols:10<br/>
-              jogos pelo clube: 133 <br/>
-              posição: meia
-            </p>
           </div>
-      
-          <img class="imgjogador" src="./assets/imgs/valdivia.jpg" onclick="exibirTexto15()"/>
+
+          <img class="imgjogador" src="./assets/imgs/valdivia.jpg" onclick="exibirTexto15()" />
           <div id="texto15" class="txt_jogador" style="display: none;">
-            <p>
-              nome: valdivia<br/>
-              idade: 39anos <br/>
-              titulos: 4titulos<br/>
-              gols:41<br/>
-              jogos pelo clube: 241 <br/>
-              posição: meia
-            </p>
           </div>
-    </div>
-          <div class="linha">
-          <img class="imgjogador" src="./assets/imgs/assuncao.jpg" onclick="exibirTexto16()"/>
-          <div id="texto16"class="txt_jogador" style="display: none;">
-            <p>
-              nome: marcos assunção<br/>
-              idade: 46 anos <br/>
-              titulos: 1titulos<br/>
-              gols:31<br/>
-              jogos pelo clube: 145<br/>
-              posição: volante
-            </p>
+        </div>
+        <div class="linha">
+          <img class="imgjogador" src="./assets/imgs/assuncao.jpg" onclick="exibirTexto16()" />
+          <div id="texto16" class="txt_jogador" style="display: none;">
           </div>
 
-          <img class="imgjogador" src="./assets/imgs/edmundo.jpg" onclick="exibirTexto17()"/>
-          <div id="texto17"class="txt_jogador" style="display: none;">
-            <p>
-              nome: edmundo<br/>
-              idade: 51anos <br/>
-              titulos: 5titulos<br/>
-              gols:99<br/>
-              jogos pelo clube: 223<br/>
-              posição: Atacante
-            </p>
+          <img class="imgjogador" src="./assets/imgs/edmundo.jpg" onclick="exibirTexto17()" />
+          <div id="texto17" class="txt_jogador" style="display: none;">
           </div>
 
-          <img class="imgjogador" src="./assets/imgs/ALEX.jpg" onclick="exibirTexto18()"/>
-          <div  id="texto18" class="txt_jogador" style="display: none;">
-            <p>
-              nome: alex<br/>
-              idade: 45anos <br/>
-              titulos: 4titulos<br/>
-              gols:78<br/>
-              jogos pelo clube: 243<br/>
-              posição: meia
-            </p>
+          <img class="imgjogador" src="./assets/imgs/ALEX.jpg" onclick="exibirTexto18()" />
+          <div id="texto18" class="txt_jogador" style="display: none;">
           </div>
         </div>
       </div>
@@ -273,8 +181,8 @@
     <p>Feito com amor por um aluno ♥ SPTech © 2023</p>
     <p>v1.0.0</p>
     <p>
-      Contato<br/>
-      email: diego.verdi@sptech.school<br/>
+      Contato<br />
+      email: diego.verdi@sptech.school<br />
       celular: (11) 97119-5642
     </p>
   </div>
@@ -282,6 +190,7 @@
 
 </html>
 <script>
+
   function
     exibirTexto1() {
     if (texto1.style.display == "none") {
@@ -337,89 +246,192 @@
   }
 
   function exibirTexto7() {
+    texto7.innerHTML = ''
     if (texto7.style.display == "none") {
       texto7.style.display = "block"
 
+      texto7.innerHTML += `<p>
+             Nome: ${jogador.nome[0]} <br/>
+              Idade: ${jogador.idade[0]} <br/>
+              Titulos: ${jogador.titulos[0]}<br/>
+              Gols: ${jogador.gols[0]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[0]}<br/>
+              Posição: ${jogador.posição[0]}
+            </p>`
     } else {
       texto7.style.display = "none"
+
     }
   }
   function exibirTexto8() {
+    texto8.innerHTML = ''
     if (texto8.style.display == "none") {
       texto8.style.display = "block"
-
+      texto8.innerHTML += `<p>
+             Nome: ${jogador.nome[1]} <br/>
+              Idade: ${jogador.idade[1]} <br/>
+              Titulos: ${jogador.titulos[1]}<br/>
+              Gols: ${jogador.gols[1]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[1]}<br/>
+              Posição: ${jogador.posição[1]}
+            </p>`
     } else {
       texto8.style.display = "none"
     }
   }
   function exibirTexto9() {
+    texto9.innerHTML = ''
     if (texto9.style.display == "none") {
       texto9.style.display = "block"
+      texto9.innerHTML += `<p>
+             Nome: ${jogador.nome[2]} <br/>
+              Idade: ${jogador.idade[2]} <br/>
+              Titulos: ${jogador.titulos[2]}<br/>
+              Gols: ${jogador.gols[2]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[2]}<br/>
+              Posição: ${jogador.posição[2]}
+            </p>`
 
     } else {
       texto9.style.display = "none"
     }
-  }function exibirTexto10() {
+  } function exibirTexto10() {
+    texto10.innerHTML = ''
     if (texto10.style.display == "none") {
       texto10.style.display = "block"
-
+      texto10.innerHTML += `<p>
+             Nome: ${jogador.nome[3]} <br/>
+              Idade: ${jogador.idade[3]} <br/>
+              Titulos: ${jogador.titulos[3]}<br/>
+              Gols: ${jogador.gols[3]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[3]}<br/>
+              Posição: ${jogador.posição[3]}
+            </p>`
     } else {
       texto10.style.display = "none"
     }
-  }function exibirTexto11() {
+  } function exibirTexto11() {
+    texto11.innerHTML = ''
     if (texto11.style.display == "none") {
       texto11.style.display = "block"
-
+      texto11.innerHTML += `<p>
+             Nome: ${jogador.nome[4]} <br/>
+              Idade: ${jogador.idade[4]} <br/>
+              Titulos: ${jogador.titulos[4]}<br/>
+              Gols: ${jogador.gols[4]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[4]}<br/>
+              Posição: ${jogador.posição[4]}
+            </p>`
     } else {
       texto11.style.display = "none"
     }
-  }function exibirTexto12() {
+  } function exibirTexto12() {
+    texto12.innerHTML = ''
     if (texto12.style.display == "none") {
       texto12.style.display = "block"
-
+      texto12.innerHTML += `<p>
+             Nome: ${jogador.nome[5]} <br/>
+              Idade: ${jogador.idade[5]} <br/>
+              Titulos: ${jogador.titulos[5]}<br/>
+              Gols: ${jogador.gols[5]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[5]}<br/>
+              Posição: ${jogador.posição[5]}
+            </p>`
     } else {
       texto12.style.display = "none"
     }
-  }function exibirTexto13() {
+  } function exibirTexto13() {
+    texto13.innerHTML = ''
     if (texto13.style.display == "none") {
       texto13.style.display = "block"
-
+      texto13.innerHTML += `<p>
+             Nome: ${jogador.nome[6]} <br/>
+              Idade: ${jogador.idade[6]} <br/>
+              Titulos: ${jogador.titulos[6]}<br/>
+              Gols: ${jogador.gols[6]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[6]}<br/>
+              Posição: ${jogador.posição[6]}
+            </p>`
     } else {
       texto13.style.display = "none"
     }
-  }function exibirTexto14() {
+  } function exibirTexto14() {
+    texto13.innerHTML = ''
     if (texto14.style.display == "none") {
       texto14.style.display = "block"
+      texto14.innerHTML += `<p>
+             Nome: ${jogador.nome[7]} <br/>
+              Idade: ${jogador.idade[7]} <br/>
+              Titulos: ${jogador.titulos[7]}<br/>
+              Gols: ${jogador.gols[7]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[7]}<br/>
+              Posição: ${jogador.posição[7]}
+            </p>`
 
     } else {
       texto14.style.display = "none"
     }
   }
   function exibirTexto15() {
+    texto15.innerHTML = ''
     if (texto15.style.display == "none") {
       texto15.style.display = "block"
-
+      texto15.innerHTML += `<p>
+             Nome: ${jogador.nome[8]} <br/>
+              Idade: ${jogador.idade[8]} <br/>
+              Titulos: ${jogador.titulos[8]}<br/>
+              Gols: ${jogador.gols[8]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[8]}<br/>
+              Posição: ${jogador.posição[8]}
+            </p>`
     } else {
       texto15.style.display = "none"
     }
   }
   function exibirTexto16() {
+    texto16.innerHTML = ''
     if (texto16.style.display == "none") {
       texto16.style.display = "block"
+      texto16.innerHTML += `<p>
+             Nome: ${jogador.nome[9]} <br/>
+              Idade: ${jogador.idade[9]} <br/>
+              Titulos: ${jogador.titulos[9]}<br/>
+              Gols: ${jogador.gols[9]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[9]}<br/>
+              Posição: ${jogador.posição[9]}
+            </p>`
 
     } else {
       texto16.style.display = "none"
     }
-  }function exibirTexto17() {
+  } function exibirTexto17() {
+    texto17.innerHTML = ''
     if (texto17.style.display == "none") {
       texto17.style.display = "block"
+      texto17.innerHTML += `<p>
+             Nome: ${jogador.nome[10]} <br/>
+              Idade: ${jogador.idade[10]} <br/>
+              Titulos: ${jogador.titulos[10]}<br/>
+              Gols: ${jogador.gols[10]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[10]}<br/>
+              Posição: ${jogador.posição[10]}
+            </p>`
 
     } else {
       texto16.style.display = "none"
     }
-  }function exibirTexto18() {
+  } function exibirTexto18() {
+    texto18.innerHTML = ''
     if (texto18.style.display == "none") {
       texto18.style.display = "block"
+      texto18.innerHTML += `<p>
+             Nome: ${jogador.nome[11]} <br/>
+              Idade: ${jogador.idade[11]} <br/>
+              Titulos: ${jogador.titulos[11]}<br/>
+              Gols: ${jogador.gols[11]} <br/>
+              Jogos pelo clube: ${jogador.jogos_pelo_clube[11]}<br/>
+              Posição: ${jogador.posição[11]}
+            </p>`
 
     } else {
       texto18.style.display = "none"

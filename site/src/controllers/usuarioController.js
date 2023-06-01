@@ -33,13 +33,13 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultado)}`);
-                     // transforma JSON em String
+                    // transforma JSON em String
 
                     if (resultado.length == 1) {
                         console.log(resultado);
@@ -65,26 +65,29 @@ function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var idade = req.body.idadeServer;
+    var escudo = req.body.escudoServer;
+    var idolo = req.body.iduloServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var idolo = req.body.iduloServer;
+
 
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (idade == undefined) {
         res.status(400).send("Seu idade está undefined!");
+    } else if (escudo == undefined) {
+        res.status(400).send("Seu escudo está undefined!");
+    } else if (idolo == undefined) {
+        res.status(400).send("Seu idolo está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    }else if(idolo == undefined) {
-        res.status(400).send("Seu idolo está undefined!");
-
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome,idade, email, senha,idolo)
+        usuarioModel.cadastrar(nome, idade, email, senha, idolo, escudo)
             .then(
                 function (resultado) {
                     res.json(resultado);

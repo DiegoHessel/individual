@@ -1,6 +1,6 @@
 create database individuall;
 use individuall;
-
+drop database individuall;
 create table jogador(
 idjogador int primary key auto_increment,
 nome varchar (45),
@@ -10,6 +10,17 @@ gols int,
 jogos int,
 posicao varchar (45)
 );
+--  create table sorteio(
+ -- idsorteio int primary key auto_increment,
+-- titulos int,
+ -- gols int,
+-- jogos int
+-- );
+
+create table escudo(
+idescudo int primary key auto_increment,
+nome varchar (45)
+);
 
 create table cadastro(
 idcadastro int primary key auto_increment,
@@ -17,11 +28,10 @@ nome varchar(100),
 idade int,
 email varchar (250),
 senha varchar(100),
-fkjogador int, constraint fkjogo foreign key (fkjogador) references jogador (idjogador)
+fkjogador int, constraint fkjogo foreign key (fkjogador) references jogador (idjogador),
+fkescudo int, constraint fkesc foreign key (fkescudo) references escudo (idescudo)
 ); 
-
-
-
+-- fksorteio int, constraint fksorte foreign key (fksorteio) references sorteio (idsorteio) 
  insert into jogador values
  (null,'DUDU',31,11,86,427,'ATACANTE'),
  (null,'WEVERTON',35, 10,0,295,'GOLEIRO'),
@@ -36,8 +46,15 @@ fkjogador int, constraint fkjogo foreign key (fkjogador) references jogador (idj
 (NULL,'EDMUNDO',51,5,99,223,'ATACANTE'),
 (NULL,'ALEX',45,4,78,243,'MEIA');
 
-select *from cadastro join jogador on idjogador = fkjogador where idcadastro =5;
+insert into escudo values
+(null, 'Palestra Italia'),
+(null, 'Palestra de São Paulo'),
+(null, 'Palmeiras');
+
 select jogador.nome, count(fkjogador) from jogador join cadastro on idjogador= fkjogador group by(jogador.nome);
+
+select escudo.nome, count(fkescudo) from escudo join cadastro on idescudo = fkescudo group by(escudo.nome);
+
 select * from jogador;
 select * from cadastro;
 select* FROM jogador join cadastro on idjogador =  fkjogador ;

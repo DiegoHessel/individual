@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,112 +8,115 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/login.css">
 </head>
-<body>
-<div class="header">
-    <div class="container">
-        <div class="logo" >
-            <img src="./assets/imgs/palmeirasLogo.png">
-           </div>
-        <ul class="navbar">
-            <li >
-                <a href="./index.html" class="agora">inicio</a>
-                </li>
-            <li>
-                <a href="./sobre.html">sobre mim </a>
-            </li>
-            <li> 
-                <a href="./login.html">login</a>
-            </li>
 
-            <li> 
-                <a href="./cadastro.html">cadastro</a>
-            </li>
-        </ul>
-    
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="./assets/imgs/palmeirasLogo.png">
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="./index.html" class="agora">inicio</a>
+                </li>
+                <li>
+                    <a href="./sobre.html">sobre mim </a>
+                </li>
+                <li>
+                    <a href="./login.html">login</a>
+                </li>
+
+                <li>
+                    <a href="./cadastro.html">cadastro</a>
+                </li>
+            </ul>
+
+        </div>
     </div>
-</div>
-<div class="banner">
-    <div class="validarconta"><br>
-        <h1> LOGIN</h1>
-        EMAIL: <input id="input_email" placeholder="email"><br>
-   SENHA: <input id="input_senha" placeholder="senha" type="password"><br>
-        <button onclick="entrar()">Entrar</button>
+    <div class="banner">
+        <div class="validarconta"><br>
+            <h1> LOGIN</h1>
+            EMAIL: <input id="input_email" placeholder="email"><br>
+            SENHA: <input id="input_senha" placeholder="senha" type="password"><br>
+            <button onclick="entrar()">Entrar</button>
+        </div>
+        <div id="pg_login"></div>
     </div>
-    <div id="pg_login"></div>
-</div>
-<div class="footer">
-    <p>Feito com amor por um aluno ♥ SPTech © 2023</p>
-    <p>v1.0.0</p>
-    <P>Contato<br>
-        email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
-    </P></div>
+    <div class="footer">
+        <p>Feito com amor por um aluno ♥ SPTech © 2023</p>
+        <p>v1.0.0</p>
+        <P>Contato<br>
+            email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
+        </P>
+    </div>
 
 </body>
+
 </html>
 <script>
-function entrar() {
+    function entrar() {
 
 
-    var emailVar = input_email.value;
-    var senhaVar = input_senha.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
 
-    if (emailVar == "" || senhaVar == "") {
-     
-        // finalizarAguardar();
-        // return false;
-    }
-    // else {
-    //     setInterval(sumirMensagem, 5000)
-    // }
+        if (emailVar == "" || senhaVar == "") {
 
-    console.log("FORM LOGIN: ", emailVar);
-    console.log("FORM SENHA: ", senhaVar);
-
-    fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
-
-        if (resposta.ok) {
-            console.log(resposta);
-
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
-
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
-
-                setTimeout(function () {
-                    window.location = "./dashboard/deshboard.html";
-
-                }, 1000); // apenas para exibir o loading
-
-            });
-
-        } else {
-
-            console.log("Houve um erro ao tentar realizar o login!");
-
-            resposta.text().then(texto => {
-                // console.error(texto);
-                // finalizarAguardar(texto);
-            });
+            // finalizarAguardar();
+            // return false;
         }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }A
 
-    }).catch(function (erro) {
-        console.log(erro);
-    })
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
 
-    return false;
-}
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
 
-</script> 
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/deshboard.html";
+
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    // console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>
