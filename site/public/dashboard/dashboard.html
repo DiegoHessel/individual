@@ -8,10 +8,10 @@
   <title>Document</title>
   <link rel="stylesheet" href="../css/dashboard.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
- 
+
 </head>
 
-<body onload="obterDadosGraficos()">
+<body onload="obterDadosGraficos() , obterDadosescudo()">
   <div class="header">
     <div class="container">
       <div class="logo">
@@ -29,31 +29,26 @@
         </li>
 
         <li>
-          <a href="../dashboard/deshboard.html">deshboard</a>
+          <a href="../dashboard/dashboard.html">dashboard</a>
         </li>
       </ul>
     </div>
   </div>
   <main>
-    <div class="banner">
-      <div class="grafico">
-        <div>
-          <canvas id="myChart" style="position: relative; height: 50%; width: 50%"></canvas>
+      
+      <div class="dashboard">
+        <div class="grafico1">
+          <canvas id="myChart"></canvas>
         </div>
 
-
-      </div>
-      <div class="banner2">
-        <div class="grafico">
-
-          <div>
-            <canvas id="myChart2" style="position: relative; height: 50%; width: 50%"></canvas>
-          </div>
-
-
+        <div class="grafico1">
+          <canvas id="myChart2"></canvas>
         </div>
+
       </div>
-    </div>
+
+          
+
     </div>
     </div>
     </div>
@@ -78,8 +73,8 @@
   window.onload = obterDadosGraficos();
 
   function obterDadosGraficos() {
-    obterDadosGrafico(1)
-    obterDadosGrafico(2)
+    obterDadosGrafico(1),
+      obterDadosescudo()
   }
 
   function obterDadosGrafico(idAquario) {
@@ -103,6 +98,80 @@
       });
   }
 
+  function obterDadosescudo(idAquario) {
+
+    if (proximaAtualizacao != undefined) {
+      clearTimeout(proximaAtualizacao);
+    }
+
+    fetch(`/medidas/buscarescudo/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta2) {
+          console.log(`Dados recebidos do escudo: ${JSON.stringify(resposta2)}`);
+          plotarGrafico2(resposta2, idAquario);
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
+
+  function plotarGrafico2(resposta2, idAquario) {
+
+    console.log('iniciando plotagem do gráfico...');
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+      labels: labels,
+      datasets: [{
+        label: '',
+        data: [],
+        fill: false,
+        backgroundColor: ['rgba(255, 255, 255, 0)'],
+        tension: 0.1
+      },
+      {
+        label: 'escudos mais votados',
+        data: [],
+        fill: '',
+        backgroundColor: ['rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)',
+          'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)',
+          'rgb(8, 114, 40)'],
+        tension: ''
+      }]
+    };
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta2.length; i++) {
+      var registro = resposta2[i];
+      labels.push(registro.nome);
+      dados.datasets[0].data.push(registro.nome);
+      dados.datasets[1].data.push(registro.escudo);
+    }
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: 'bar',
+      data: dados,
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(
+      document.getElementById('myChart2'),
+      config
+    );
+  }
+
+
+
+
+
   function plotarGrafico(resposta, idAquario) {
 
     console.log('iniciando plotagem do gráfico...');
@@ -117,7 +186,7 @@
         label: '',
         data: [],
         fill: false,
-        backgroundColor: [''],
+        backgroundColor: ['rgba(255, 255, 255, 0)'],
         tension: 0.1
       },
       {
@@ -149,7 +218,6 @@
     console.log(labels)
     console.log('Dados:')
     console.log(dados.datasets)
-    console.log('----------------------------------------------')
 
     // Criando estrutura para plotar gráfico - config
     const config = {
@@ -188,11 +256,11 @@
 
 
           // if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-            
+
           //   // console.log("Como não há dados novos para captura, o gráfico não atualizará.")
           //   // console.log(novoRegistro[0].momento_grafico)
           //   console.log(dados.labels[dados.labels.length - 1])
-           
+
           // } else {
           //   dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
           //   myChart.update();

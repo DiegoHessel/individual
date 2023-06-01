@@ -89,7 +89,9 @@
 
         if (nome == "" || idade == "" || escudo == "" || idolo == "" || email == "" || senha == "" || confirmar_senha == "") {
             Swal.fire('Preencha todos os campos')
+        
 
+            
             return false;
         } else if (nome.length < 3) {
             Swal.fire('seu nome tem que ter no minimo 3 letras!!!')
