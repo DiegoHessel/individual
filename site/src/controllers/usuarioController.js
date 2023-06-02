@@ -105,41 +105,41 @@ function cadastrar(req, res) {
     }
 }
 
-// function jogo(req, res) {
-//     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+function jogo(req, res) {
+   // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 
-//     var gol = req.body.golServer;
-//     var titulo = req.body.tituloServer;
-//     var jogos = req.body.jogosServer;
+    var gol = req.body.golServer;
+    var titulo = req.body.tituloServer;
+    var jogos = req.body.jogosServer;
 
 
-//     // Faça as validações dos valores
-//     if (gol == undefined) {
-//         res.status(400).send("Seu gol está undefined!");
-//     }else if (titulo == undefined) {
-//         res.status(400).send("Seu titulo está undefined!");
-//     } else if (jogos == undefined) {
-//         res.status(400).send("Sua jogos está undefined!");
-//     } else {
+    //Faça as validações dos valores
+    if (gol == undefined) {
+        res.status(400).send("Seu gol está undefined!");
+    }else if (titulo == undefined) {
+        res.status(400).send("Seu titulo está undefined!");
+    } else if (jogos == undefined) {
+        res.status(400).send("Sua jogos está undefined!");
+    } else {
 
-//         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-//         usuarioModel.jogo(gol, titulo, jogos)
-//             .then(
-//                 function (resultado) {
-//                     res.json(resultado);
-//                 }
-//             ).catch(
-//                 function (erro) {
-//                     console.log(erro);
-//                     console.log(
-//                         "\nHouve um erro ao realizar o cadastro! Erro: ",
-//                         erro.sqlMessage
-//                     );
-//                     res.status(500).json(erro.sqlMessage);
-//                 }
-//             );
-//     }
-// }
+        //Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.jogo(gol, titulo, jogos)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
 module.exports = {
     entrar,
     cadastrar,

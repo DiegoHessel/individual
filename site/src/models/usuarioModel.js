@@ -31,17 +31,17 @@ function cadastrar(nome, idade, email, senha, idolo, escudo) {
     return database.executar(instrucao);
 }
 
-// function jogo(gol, titulo, jogos) {
-//     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", gol, titulo, jogos);
+function jogo(gol, titulo, jogos) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", gol, titulo, jogos);
 
-//     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-//     //  e na ordem de inserção dos dados.
-//     var instrucao = `
-//         INSERT INTO cadastro (gols,titulos, jogos) VALUES ('${gol}','${titulo}','${jogos}');
-//     `;
-//     console.log("Executando a instrução SQL: \n" + instrucao);
-//     return database.executar(instrucao);
-// }
+   // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    // e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO sorteio (gols,titulos, jogos) VALUES ('${gol}','${titulo}','${jogos}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
     entrar,

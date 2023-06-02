@@ -1,6 +1,5 @@
 create database individuall;
 use individuall;
-drop database individuall;
 create table jogador(
 idjogador int primary key auto_increment,
 nome varchar (45),
@@ -11,14 +10,7 @@ jogos int,
 posicao varchar (45)
 );
 
- create table sorteio(
- idsorteio int primary key auto_increment,
- gols int,
- titulos int,
-jogos int,
-fkcadastro int, constraint fkcadas foreign key (fkcadastro) references cadastro (idcadastro) 
-);
-
+drop database individuall;
 create table escudo(
 idescudo int primary key auto_increment,
 nome varchar (45)
@@ -33,6 +25,13 @@ senha varchar(100),
 fkjogador int, constraint fkjogo foreign key (fkjogador) references jogador (idjogador),
 fkescudo int, constraint fkesc foreign key (fkescudo) references escudo (idescudo)
 
+);
+ create table sorteio(
+ idsorteio int primary key auto_increment,
+ gols int,
+ titulos int,
+jogos int,
+fkcadastro int, constraint fkcadas foreign key (fkcadastro) references cadastro (idcadastro) 
 );
 
 
@@ -57,10 +56,20 @@ insert into escudo values
 (null, 'Palestra de São Paulo'),
 (null, 'Palmeiras');
 
+insert into sorteio values
+(null,75,11,427,1);
 select jogador.nome, count(fkjogador) from jogador join cadastro on idjogador= fkjogador group by(jogador.nome);
 
 select escudo.nome, count(fkescudo) from escudo join cadastro on idescudo = fkescudo group by(escudo.nome);
-select sorteio.gols, sorteio.titulos, sorteio.jogos,jogador.gols, jogador.titulos ,jogador.jogos from sorteio join jogador on idcadastro = sorteio.fkcadastro;
+
+select sorteio.gols , sorteio.titulos, sorteio.jogos, jogador.gols, jogador.titulos, jogador.jogos
+from sorteio join cadastro  on cadastro.idcadastro = sorteio.fkcadastro join jogador on jogador.idjogador= cadastro.fkjogador;
+
+select sorteio.gols , sorteio.titulos, sorteio.jogos
+from sorteio join cadastro  on cadastro.idcadastro = sorteio.fkcadastro;
+
+select jogador.gols, jogador.titulos, jogador.jogos from  cadastro join jogador on jogador.idjogador= cadastro.fkjogador;
+
 select * from jogador;
 select * from sorteio;
 
@@ -77,4 +86,3 @@ select count(fkjogador) from cadastro where fkjogador = 9;
 select count(fkjogador) from cadastro where fkjogador = 10;
 select count(fkjogador) from cadastro where fkjogador =11;
 select count(fkjogador) from cadastro where fkjogador =12;
-

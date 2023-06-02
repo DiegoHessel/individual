@@ -70,25 +70,25 @@ function buscarescudo(idAquario) {
 
 
 
-// function buscarsorteio(idAquario) {
+function buscarsorteio(idAquario) {
 
-//     instrucaoSql = ''
+    instrucaoSql = ''
 
-//     if (process.env.AMBIENTE_PROCESSO == "producao") {
-//         instrucaoSql = `select escudo.nome as nome, count(fkescudo) as escudo from escudo 
-//         join cadastro on idescudo = fkescudo group by(escudo.nome);`;
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select escudo.nome as nome, count(fkescudo) as escudo from escudo 
+        join cadastro on idescudo = fkescudo group by(escudo.nome);`;
 
-//     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-//         instrucaoSql = `select escudo.nome as nome, count(fkescudo) as escudo from escudo 
-//         join cadastro on idescudo = fkescudo group by(escudo.nome);`;
-//     } else {
-//         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
-//         return
-//     }
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `select escudo.nome as nome, count(fkescudo) as escudo from escudo 
+        join cadastro on idescudo = fkescudo group by(escudo.nome);`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
 
-//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-//     return database.executar(instrucaoSql);
-// }
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     buscarUltimasMedidas,
