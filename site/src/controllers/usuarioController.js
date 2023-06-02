@@ -108,22 +108,23 @@ function cadastrar(req, res) {
 function jogo(req, res) {
    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 
-    var gol = req.body.golServer;
-    var titulo = req.body.tituloServer;
-    var jogos = req.body.jogosServer;
+    var qtd_gols = req.body.golServer;
+    var qtd_titulo = req.body.tituloServer;
+    var qtd_jogos = req.body.qtd_jogosServer;
+    var idusuario = req.params.idusuario
 
 
     //Faça as validações dos valores
-    if (gol == undefined) {
+    if (qtd_gols == undefined) {
         res.status(400).send("Seu gol está undefined!");
-    }else if (titulo == undefined) {
+    }else if (qtd_titulo == undefined) {
         res.status(400).send("Seu titulo está undefined!");
-    } else if (jogos == undefined) {
+    } else if (qtd_jogos == undefined) {
         res.status(400).send("Sua jogos está undefined!");
     } else {
 
         //Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.jogo(gol, titulo, jogos)
+        usuarioModel.jogo(qtd_gols, qtd_titulo, qtdjogos)
             .then(
                 function (resultado) {
                     res.json(resultado);

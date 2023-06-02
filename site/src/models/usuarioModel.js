@@ -3,7 +3,7 @@ var database = require("../database/config")
 function listar() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-        SELECT * FROM usuario;
+        SELECT * FROM cadastro;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -31,13 +31,13 @@ function cadastrar(nome, idade, email, senha, idolo, escudo) {
     return database.executar(instrucao);
 }
 
-function jogo(gol, titulo, jogos) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", gol, titulo, jogos);
+function jogo(qtd_gols,qtd_titulo, qtd_jogos) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",qtd_gols,qtd_titulo, qtd_jogos);
 
    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     // e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO sorteio (gols,titulos, jogos) VALUES ('${gol}','${titulo}','${jogos}');
+        INSERT INTO sorteio (qtd_gols,qtd_titulo, qtd_jogos) VALUES ('${qtd_gols}','${qtd_titulo}','${qtd_jogos}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

@@ -77,22 +77,27 @@
                   mostrar.innerHTML += `Posição:${posição[pos]}`
 
                   if (gol.length > 0) {
-                    var qtd_gols = parseInt(Math.random() * gol.length);
-                    mostrar.innerHTML += `<br> Quantos gols:${gol[qtd_gols]}`
+                    var random_gols = parseInt(Math.random() * gol.length);
+                    var qtd_gols = gol[random_gols]
+                    mostrar.innerHTML += `<br> Quantos gols:${qtd_gols}`
 
                     if (titulo.length > 0) {
-                      var qtd_titulo = parseInt(Math.random() * titulo.length);
-                      mostrar.innerHTML += `<br> Quantidade de titulos: ${titulo[qtd_titulo]}`
+                      var random_titulo = parseInt(Math.random() * titulo.length);
+                      var qtd_titulo = titulo[random_titulo]
+                      mostrar.innerHTML += `<br> Quantidade de titulos: ${qtd_titulo}`
 
                       if (jogos.length > 0) {
-                        var qtd_jogos = parseInt(Math.random() * jogos.length);
-                        mostrar.innerHTML += `<br> Quantidade de jogos:${jogos[qtd_jogos]}`
+                        var random_jogos = parseInt(Math.random() * jogos.length);
+                        var qtd_jogos =jogos[random_jogos]
+                        mostrar.innerHTML += `<br> Quantidade de jogos:${qtd_jogos}`
                       }
                     }
+
                   }
                 }
               }
             }
+                        
           </script>
         </div>
       </div>
@@ -105,7 +110,7 @@
         </div>
 
     </main>
-    < <div class="footer">
+    <div class="footer">
       <p>Feito com amor por um aluno ♥ SPTech © 2023 v1.0.0>Contato<br><br>
         email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
       </P>
@@ -115,19 +120,23 @@
   </body>
 
 </html>
-<!-- <script>
+<script>
+ let proximaAtualizacao;
+ 
+ var idusuario = sessionStorage.ID_USUARIO
 
+ 
   function obterGrafico3() {
   
       if (proximaAtualizacao != undefined) {
         clearTimeout(proximaAtualizacao);
       }
   
-      fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+      fetch(`/medidas/jogo/${idusuario}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
           response.json().then(function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            plotarGrafico(resposta, idAquario);
+            plotarGrafico(resposta, idusuario);
           });
         } else {
           console.error('Nenhum dado encontrado ou erro na API');
@@ -138,7 +147,7 @@
         });
     }
   
-    function plotarGrafico(resposta, idAquario) {
+    function plotarGrafico(resposta, idusuario) {
   
       console.log('iniciando plotagem do gráfico...');
   
