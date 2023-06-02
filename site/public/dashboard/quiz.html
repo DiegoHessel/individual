@@ -2,247 +2,246 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="../css/quiz.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../css/quiz.css">
 </head>
 
 <body>
 
-    <body  onload="obterGrafico3()">
-        <div class="header">
-            <div class="container">
-                <div class="logo">
-                    <img src="../assets/imgs/palmeirasLogo.png" />
-                </div>
-                <ul class="navbar">
-                    <li>
-                        <a href="../index.html" class="agora">inicio</a>
-                    </li>
-                    <li>
-                        <a href="../sobre.html">sobre mim </a>
-                    </li>
-                    <li>
-                        <a href="../dashboard/quiz.html">Sorteio</a>
-                    </li>
-
-                    <li>
-                        <a href="../dashboard/dashboard.html">Dashboard</a>
-                    </li>
-                </ul>
-            </div>
+  <body onload="obterGrafico3()">
+    <div class="header">
+      <div class="container">
+        <div class="logo">
+          <img src="../assets/imgs/palmeirasLogo.png" />
         </div>
-        <main>
-            <div class="sessao1">
-                <div class="banner">
+        <ul class="navbar">
+          <li>
+            <a href="../index.html" class="agora">inicio</a>
+          </li>
+          <li>
+            <a href="../sobre.html">sobre mim </a>
+          </li>
+          <li>
+            <a href="../dashboard/quiz.html">Sorteio</a>
+          </li>
 
-                    <button onclick="jogo()">Sortear sua carreira</button>
-                    <div id="mostrar"></div>
+          <li>
+            <a href="../dashboard/dashboard.html">Dashboard</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <main>
+      <div class="sessao1">
+        <div class="banner">
 
-                    <script>
-                        var img1 = `../assets/imgs/dudus.jpg`
-                        var img2 = `../assets/imgs/weverton-palmeiras.jpg`
-                        var img3 = `../assets/imgs/vriga.jpg `
-                        var img4 = `../assets/imgs/scarp.jpg`
-                        var img5 = `../assets/imgs/gomez.jpg`
-                        var img6 = `../assets/imgs/prass.jpg`
-                        var img7 = `../assets/imgs/marcos.jpg`
-                        var img8 = `../assets/imgs/zé.jpg`
-                        var img9 = `../assets/imgs/valdivia.jpg`
-                        var img10 = `../assets/imgs/assuncao.jpg`
-                        var img11 = `../assets/imgs/edmundo.jpg`
-                        var img12 = `../assets/imgs/ALEX.jpg`
+          <button onclick="jogo()">Sortear sua carreira</button>
+          <div id="mostrar"></div>
 
-                        var sorteio_img = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
+          <script>
+            var img1 = `../assets/imgs/dudus.jpg`
+            var img2 = `../assets/imgs/weverton-palmeiras.jpg`
+            var img3 = `../assets/imgs/vriga.jpg `
+            var img4 = `../assets/imgs/scarp.jpg`
+            var img5 = `../assets/imgs/gomez.jpg`
+            var img6 = `../assets/imgs/prass.jpg`
+            var img7 = `../assets/imgs/marcos.jpg`
+            var img8 = `../assets/imgs/zé.jpg`
+            var img9 = `../assets/imgs/valdivia.jpg`
+            var img10 = `../assets/imgs/assuncao.jpg`
+            var img11 = `../assets/imgs/edmundo.jpg`
+            var img12 = `../assets/imgs/ALEX.jpg`
 
-                        var posição = ["Goleiro", "Zagueiro", "Volante", "Meia", "Ponta Direita", "Ponta Esquerda"]
-                        var gol = [86, 0, 75, 44, 31, 1, 0, 10, 41, 31, 99, 76]
-                        var titulo = [11, 10, 9, 8, 10, 4, 12, 2, 4, 1, 5, 4]
-                        var jogos = [427, 295, 231, 230, 243, 274, 533, 133, 241, 145, 223, 243]
+            var sorteio_img = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
 
-                        function jogo() {
+            var posição = ["Goleiro", "Zagueiro", "Volante", "Meia", "Ponta Direita", "Ponta Esquerda"]
+            var gol = [86, 0, 75, 44, 31, 1, 0, 10, 41, 31, 99, 76]
+            var titulo = [11, 10, 9, 8, 10, 4, 12, 2, 4, 1, 5, 4]
+            var jogos = [427, 295, 231, 230, 243, 274, 533, 133, 241, 145, 223, 243]
 
-                            mostrar.innerHTML = ""
+            function jogo() {
 
-                            if (sorteio_img.length > 0) {
-                                var num_img = parseInt(Math.random() * sorteio_img.length);
-                                mostrar.innerHTML += `Historia para o clube: 
+              mostrar.innerHTML = ""
+
+              if (sorteio_img.length > 0) {
+                var num_img = parseInt(Math.random() * sorteio_img.length);
+                mostrar.innerHTML += `Historia para o clube: 
             <img src="${sorteio_img[num_img]}" alt="" id="imagem"> `
 
-                                if (posição.length > 0) {
-                                    var pos = parseInt(Math.random() * posição.length);
-                                    mostrar.innerHTML += `Posição:${posição[pos]}`
+                if (posição.length > 0) {
+                  var pos = parseInt(Math.random() * posição.length);
+                  mostrar.innerHTML += `Posição:${posição[pos]}`
 
-                                    if (gol.length > 0) {
-                                        var qtd_gols = parseInt(Math.random() * gol.length);
-                                        mostrar.innerHTML += `<br> Quantos gols:${gol[qtd_gols]}`
+                  if (gol.length > 0) {
+                    var qtd_gols = parseInt(Math.random() * gol.length);
+                    mostrar.innerHTML += `<br> Quantos gols:${gol[qtd_gols]}`
 
-                                        if (titulo.length > 0) {
-                                            var qtd_titulo = parseInt(Math.random() * titulo.length);
-                                            mostrar.innerHTML += `<br> Quantidade de titulos: ${titulo[qtd_titulo]}`
+                    if (titulo.length > 0) {
+                      var qtd_titulo = parseInt(Math.random() * titulo.length);
+                      mostrar.innerHTML += `<br> Quantidade de titulos: ${titulo[qtd_titulo]}`
 
-                                            if (jogos.length > 0) {
-                                                var qtd_jogos = parseInt(Math.random() * jogos.length);
-                                                mostrar.innerHTML += `<br> Quantidade de jogos:${jogos[qtd_jogos]}`
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    </script>
-                </div>
-            </div>
-            <div class="sessao2">
-                  <div class="dashboard">
-        <div class="grafico1">
-          <canvas id="myChart3"></canvas>
-        </div>
-        <script>
-
-            function obterGrafico3() {
-            
-                if (proximaAtualizacao != undefined) {
-                  clearTimeout(proximaAtualizacao);
-                }
-            
-                fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-                  if (response.ok) {
-                    response.json().then(function (resposta) {
-                      console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                      plotarGrafico(resposta, idAquario);
-                    });
-                  } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
+                      if (jogos.length > 0) {
+                        var qtd_jogos = parseInt(Math.random() * jogos.length);
+                        mostrar.innerHTML += `<br> Quantidade de jogos:${jogos[qtd_jogos]}`
+                      }
+                    }
                   }
-                })
-                  .catch(function (error) {
-                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                  });
-              }
-            
-              function plotarGrafico(resposta, idAquario) {
-            
-                console.log('iniciando plotagem do gráfico...');
-            
-                // Criando estrutura para plotar gráfico - labels
-                let labels = [];
-            
-                // Criando estrutura para plotar gráfico - dados
-                let dados = {
-                  labels: labels,
-                  datasets: [{
-                    label: '',
-                    data: [],
-                    fill: false,
-                    backgroundColor: [''],
-                    tension: 0.1
-                  },
-                  {
-                    label: 'mais votados',
-                    data: [],
-                    fill: '',
-                    backgroundColor: ['rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)',
-                      'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)',
-                      'rgb(8, 114, 40)'],
-                    tension: ''
-                  }]
-                };
-            
-            
-                // Inserindo valores recebidos em estrutura para plotar o gráfico
-                for (i = 0; i < resposta.length; i++) {
-                  var registro = resposta[i];
-                  labels.push(registro.nome);
-                  dados.datasets[0].data.push(registro.nome);
-                  dados.datasets[1].data.push(registro.votos);
                 }
-            
-                // console.log('----------------------------------------------')
-                // console.log('O gráfico será plotado com os respectivos valores:')
-                // console.log('Labels:')
-                // console.log(labels)
-                // console.log('Dados:')
-                // console.log(dados.datasets)
-                // console.log('----------------------------------------------')
-            
-                // Criando estrutura para plotar gráfico - config
-                const config = {
-                  type: 'bar',
-                  data: dados,
-                };
-            
-                // Adicionando gráfico criado em div na tela
-                let myChart3 = new Chart(
-                  document.getElementById('myChart3'),
-                  config
-                );
-            
-                // setTimeout(() => atualizarGrafico(idAquario, dados, myChart3), 2000);
               }
-            
-              // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-              // buscando a última medida inserida em tabela contendo as capturas, 
-            
-              //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-              //     Para ajustar o "select", ajuste o comando sql em src/models
-              function atualizarGrafico(idAquario, dados, myChart3) {
-            
-            
-            
-                fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-                  if (response.ok) {
-                    response.json().then(function (novoRegistro) {
-            
-                      console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                      console.log(`Dados atuais do gráfico:`);
-                      console.log(dados);
-            
-                      // let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
-                      // avisoCaptura.innerHTML = ""
-            
-            
-                      // if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                        
-                      //   // console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                      //   // console.log(novoRegistro[0].momento_grafico)
-                      //   console.log(dados.labels[dados.labels.length - 1])
-                       
-                      // } else {
-                      //   dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-                      //   myChart3.update();
-                      // }
-            
-                      // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                      proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart3), 2000);
-                    });
-                  } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart3), 2000);
-                  }
-                })
-                  .catch(function (error) {
-                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                  });
-            
-              }
-            </script>
-            </div>
-
-        </main>
-        <div class="footer">
-            <p>Feito com amor por um aluno ♥ SPTech © 2023</p>
-            <p>v1.0.0</p>
-            <p>
-                Contato<br />
-                email: diego.verdi@sptech.school<br />
-                celular: (11) 97119-5642
-            </p>
+            }
+          </script>
         </div>
-    </body>
+      </div>
+      <div class="sessao2">
+        <div class="dashboard">
+          <div class="grafico1">
+            <canvas id="myChart3"></canvas>
+          </div>
+
+        </div>
+
+    </main>
+    < <div class="footer">
+      <p>Feito com amor por um aluno ♥ SPTech © 2023 v1.0.0>Contato<br><br>
+        email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
+      </P>
+      </div>
+      </p>
+      </div>
+  </body>
 
 </html>
+<!-- <script>
+
+  function obterGrafico3() {
+  
+      if (proximaAtualizacao != undefined) {
+        clearTimeout(proximaAtualizacao);
+      }
+  
+      fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            plotarGrafico(resposta, idAquario);
+          });
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      })
+        .catch(function (error) {
+          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+    }
+  
+    function plotarGrafico(resposta, idAquario) {
+  
+      console.log('iniciando plotagem do gráfico...');
+  
+      // Criando estrutura para plotar gráfico - labels
+      let labels = [];
+  
+      // Criando estrutura para plotar gráfico - dados
+      let dados = {
+        labels: labels,
+        datasets: [{
+          label: '',
+          data: [],
+          fill: false,
+          backgroundColor: [''],
+          tension: 0.1
+        },
+        {
+          label: 'mais votados',
+          data: [],
+          fill: '',
+          backgroundColor: ['rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)',
+            'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)',
+            'rgb(8, 114, 40)'],
+          tension: ''
+        }]
+      };
+  
+  
+      // Inserindo valores recebidos em estrutura para plotar o gráfico
+      for (i = 0; i < resposta.length; i++) {
+        var registro = resposta[i];
+        labels.push(registro.nome);
+        dados.datasets[0].data.push(registro.nome);
+        dados.datasets[1].data.push(registro.votos);
+      }
+  
+      // console.log('----------------------------------------------')
+      // console.log('O gráfico será plotado com os respectivos valores:')
+      // console.log('Labels:')
+      // console.log(labels)
+      // console.log('Dados:')
+      // console.log(dados.datasets)
+      // console.log('----------------------------------------------')
+  
+      // Criando estrutura para plotar gráfico - config
+      const config = {
+        type: 'bar',
+        data: dados,
+      };
+  
+      // Adicionando gráfico criado em div na tela
+      let myChart3 = new Chart(
+        document.getElementById('myChart3'),
+        config
+      );
+  
+      // setTimeout(() => atualizarGrafico(idAquario, dados, myChart3), 2000);
+    }
+  
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando a última medida inserida em tabela contendo as capturas, 
+  
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function atualizarGrafico(idAquario, dados, myChart3) {
+  
+  
+  
+      fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+          response.json().then(function (novoRegistro) {
+  
+            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+            console.log(`Dados atuais do gráfico:`);
+            console.log(dados);
+  
+            // let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
+            // avisoCaptura.innerHTML = ""
+  
+  
+            // if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+              
+            //   // console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+            //   // console.log(novoRegistro[0].momento_grafico)
+            //   console.log(dados.labels[dados.labels.length - 1])
+             
+            // } else {
+            //   dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+            //   myChart3.update();
+            // }
+  
+            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart3), 2000);
+          });
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+          // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart3), 2000);
+        }
+      })
+        .catch(function (error) {
+          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+  
+    }
+  </script>

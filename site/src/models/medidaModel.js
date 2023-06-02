@@ -75,12 +75,10 @@ function buscarsorteio(idAquario) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select escudo.nome as nome, count(fkescudo) as escudo from escudo 
-        join cadastro on idescudo = fkescudo group by(escudo.nome);`;
+        instrucaoSql = `select sorteio.gols , sorteio.titulos, sorteio.jogos, jogador.gols, jogador.titulos, jogador.jogos`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select escudo.nome as nome, count(fkescudo) as escudo from escudo 
-        join cadastro on idescudo = fkescudo group by(escudo.nome);`;
+        instrucaoSql = `from sorteio join cadastro  on cadastro.idcadastro = sorteio.fkcadastro join jogador on jogador.idjogador= cadastro.fkjogador;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

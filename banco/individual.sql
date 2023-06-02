@@ -9,8 +9,6 @@ gols int,
 jogos int,
 posicao varchar (45)
 );
-
-drop database individuall;
 create table escudo(
 idescudo int primary key auto_increment,
 nome varchar (45)
