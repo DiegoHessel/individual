@@ -10,12 +10,14 @@ gols int,
 jogos int,
 posicao varchar (45)
 );
---  create table sorteio(
- -- idsorteio int primary key auto_increment,
--- titulos int,
- -- gols int,
--- jogos int
--- );
+
+ create table sorteio(
+ idsorteio int primary key auto_increment,
+ gols int,
+ titulos int,
+jogos int,
+fkcadastro int, constraint fkcadas foreign key (fkcadastro) references cadastro (idcadastro) 
+);
 
 create table escudo(
 idescudo int primary key auto_increment,
@@ -30,8 +32,12 @@ email varchar (250),
 senha varchar(100),
 fkjogador int, constraint fkjogo foreign key (fkjogador) references jogador (idjogador),
 fkescudo int, constraint fkesc foreign key (fkescudo) references escudo (idescudo)
-); 
--- fksorteio int, constraint fksorte foreign key (fksorteio) references sorteio (idsorteio) 
+
+);
+
+
+insert into cadastro values
+(null, 'Palestra Italia',11,'1@.com','1111',1,1);
  insert into jogador values
  (null,'DUDU',31,11,86,427,'ATACANTE'),
  (null,'WEVERTON',35, 10,0,295,'GOLEIRO'),
@@ -54,9 +60,10 @@ insert into escudo values
 select jogador.nome, count(fkjogador) from jogador join cadastro on idjogador= fkjogador group by(jogador.nome);
 
 select escudo.nome, count(fkescudo) from escudo join cadastro on idescudo = fkescudo group by(escudo.nome);
-
+select sorteio.gols, sorteio.titulos, sorteio.jogos,jogador.gols, jogador.titulos ,jogador.jogos from sorteio join jogador on idcadastro = sorteio.fkcadastro;
 select * from jogador;
-select * from cadastro;
+select * from sorteio;
+
 select* FROM jogador join cadastro on idjogador =  fkjogador ;
 select count(fkjogador) from cadastro where fkjogador = 1;
 select count(fkjogador) from cadastro where fkjogador = 2;
