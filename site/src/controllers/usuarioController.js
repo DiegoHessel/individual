@@ -108,10 +108,10 @@ function cadastrar(req, res) {
 function jogo(req, res) {
    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 
-    var qtd_gols = req.body.golServer;
-    var qtd_titulo = req.body.tituloServer;
-    var qtd_jogos = req.body.qtd_jogosServer;
-    var idusuario = req.params.idusuario
+    var qtd_gols = req.body.qtd_golsVar;
+    var qtd_titulo = req.body.qtd_tituloVar;
+    var qtd_jogos = req.body.qtd_jogosVar;
+    var idusuario = req.body.idUsuarioVar
 
 
     //Faça as validações dos valores
@@ -124,7 +124,7 @@ function jogo(req, res) {
     } else {
 
         //Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.jogo(qtd_gols, qtd_titulo, qtdjogos)
+        usuarioModel.jogo(qtd_gols, qtd_titulo, qtd_jogos , idusuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -146,5 +146,6 @@ module.exports = {
     cadastrar,
     listar,
     testar,
-    jogo
+    jogo,
+    
 }

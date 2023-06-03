@@ -43,6 +43,8 @@
           <div id="mostrar"></div>
 
           <script>
+             
+ var idusuario = sessionStorage.ID_USUARIO
             var img1 = `../assets/imgs/dudus.jpg`
             var img2 = `../assets/imgs/weverton-palmeiras.jpg`
             var img3 = `../assets/imgs/vriga.jpg `
@@ -96,6 +98,39 @@
                   }
                 }
               }
+
+              fetch("/usuarios/jogo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                qtd_golsVar: qtd_gols,
+                qtd_tituloVar: qtd_titulo,
+                qtd_jogosVar: qtd_jogos,
+                idUsuarioVar: idusuario
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+            console.log("Ok")
+              
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+              console.log(qtd_gols , qtd_titulo , qtd_jogos)
             }
                         
           </script>
@@ -122,9 +157,8 @@
 </html>
 <script>
  let proximaAtualizacao;
- 
- var idusuario = sessionStorage.ID_USUARIO
 
+    console.log(idusuario)
  
   function obterGrafico3() {
   
