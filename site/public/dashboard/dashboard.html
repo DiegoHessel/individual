@@ -19,17 +19,17 @@
       </div>
       <ul class="navbar">
         <li>
-          <a href="../index.html" class="agora">inicio</a>
+          <a href="../index.html" class="agora">Home</a>
         </li>
         <li>
-          <a href="../sobre.html">sobre mim </a>
+          <a href="../sobre.html">Sobre mim </a>
         </li>
         <li>
           <a href="../dashboard/quiz.html">Sorteio</a>
         </li>
 
         <li>
-          <a href="../dashboard/dashboard.html">dashboard</a>
+          <a href="../dashboard/dashboard.html">Dashboard</a>
         </li>
       </ul>
     </div>
@@ -56,9 +56,10 @@
     </div>
   </main>
   <div class="footer">
-    <p>Feito com amor por um aluno ♥ SPTech © 2023 v1.0.0>Contato<br><br>
-      email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
-    </P>
+    <p>Feito com amor por Diego Hessel aluno ♥ SPTech © 2023 v1.0.0<br><br>
+      Contato:<br>
+      Email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
+  </p>
   </div>
 </body>
 
@@ -166,13 +167,7 @@
     );
   }
 
-
-
-
-
   function plotarGrafico(resposta, idAquario) {
-
-    console.log('iniciando plotagem do gráfico...');
 
     // Criando estrutura para plotar gráfico - labels
     let labels = [];
@@ -198,10 +193,6 @@
       }]
     };
 
-    console.log('----------------------------------------------')
-    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(resposta)
-
     // Inserindo valores recebidos em estrutura para plotar o gráfico
     for (i = 0; i < resposta.length; i++) {
       var registro = resposta[i];
@@ -209,13 +200,6 @@
       dados.datasets[0].data.push(registro.nome);
       dados.datasets[1].data.push(registro.votos);
     }
-
-    console.log('----------------------------------------------')
-    console.log('O gráfico será plotado com os respectivos valores:')
-    console.log('Labels:')
-    console.log(labels)
-    console.log('Dados:')
-    console.log(dados.datasets)
 
     // Criando estrutura para plotar gráfico - config
     const config = {
@@ -228,54 +212,7 @@
       document.getElementById('myChart'),
       config
     );
-
-    setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
   }
 
-  // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-  // buscando a última medida inserida em tabela contendo as capturas, 
-
-  //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-  //     Para ajustar o "select", ajuste o comando sql em src/models
-  function atualizarGrafico(idAquario, dados, myChart) {
-
-
-
-    fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (novoRegistro) {
-
-          console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-          console.log(`Dados atuais do gráfico:`);
-          console.log(dados);
-
-          // let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
-          // avisoCaptura.innerHTML = ""
-
-
-          // if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-
-          //   // console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-          //   // console.log(novoRegistro[0].momento_grafico)
-          //   console.log(dados.labels[dados.labels.length - 1])
-
-          // } else {
-          //   dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-          //   myChart.update();
-          // }
-
-          // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-          proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-        });
-      } else {
-        console.error('Nenhum dado encontrado ou erro na API');
-        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-      }
-    })
-      .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-      });
-
-  }
+  
 </script>

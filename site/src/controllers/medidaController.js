@@ -59,13 +59,13 @@ function buscarescudo(req, res) {
     });
 }
 
- function buscarsorteio(req, res) {
+ function obitersorteio(req, res) {
 
-     var fksorteio = req.params.fksorteio;
+     var idusuario = req.params.idusuario;
 
      console.log(`Recuperando medidas em tempo real`);
 
-     medidaModel.buscarsorteio(fksorteio).then(function (resultado) {
+     medidaModel.obitersorteio(idusuario).then(function (resultado) {
          if (resultado.length > 0) {
              res.status(200).json(resultado);
          } else {
@@ -82,6 +82,6 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarescudo,
-    buscarsorteio
+    obitersorteio
 
 }

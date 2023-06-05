@@ -12,7 +12,7 @@
 
 <body>
 
-  <body onload="obterGrafico3()">
+  <body>
     <div class="header">
       <div class="container">
         <div class="logo">
@@ -20,10 +20,10 @@
         </div>
         <ul class="navbar">
           <li>
-            <a href="../index.html" class="agora">inicio</a>
+            <a href="../index.html" class="agora">Home</a>
           </li>
           <li>
-            <a href="../sobre.html">sobre mim </a>
+            <a href="../sobre.html">Sobre mim </a>
           </li>
           <li>
             <a href="../dashboard/quiz.html">Sorteio</a>
@@ -38,13 +38,16 @@
     <main>
       <div class="sessao1">
         <div class="banner">
-
-          <button onclick="jogo()">Sortear sua carreira</button>
+          <div id="button_sorteio" style="display: block;">
+            <button onclick="jogo()">Sortear sua carreira</button>
+          </div>
           <div id="mostrar"></div>
 
           <script>
-             
- var idusuario = sessionStorage.ID_USUARIO
+            var tentativas= 0
+            let proximaAtualizacao
+
+            var idusuario = sessionStorage.ID_USUARIO
             var img1 = `../assets/imgs/dudus.jpg`
             var img2 = `../assets/imgs/weverton-palmeiras.jpg`
             var img3 = `../assets/imgs/vriga.jpg `
@@ -60,19 +63,27 @@
 
             var sorteio_img = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12]
 
-            var posição = ["Goleiro", "Zagueiro", "Volante", "Meia", "Ponta Direita", "Ponta Esquerda"]
+            var posição = ["GOLEIRO", "ZAGUEIRO", "VOLANTE", "MEIA", "PONTA DIREITA", "PONTA ESQUERDA"]
             var gol = [86, 0, 75, 44, 31, 1, 0, 10, 41, 31, 99, 76]
             var titulo = [11, 10, 9, 8, 10, 4, 12, 2, 4, 1, 5, 4]
             var jogos = [427, 295, 231, 230, 243, 274, 533, 133, 241, 145, 223, 243]
 
             function jogo() {
-
+              if(tentativas==0){
+              
+              if (button_sorteio.style.display == "none") {
+                 button_sorteio.style.display = "block"
+                }
+                    else {
+                    button_sorteio.style.display = "none"
+                    }
+  
               mostrar.innerHTML = ""
 
               if (sorteio_img.length > 0) {
                 var num_img = parseInt(Math.random() * sorteio_img.length);
-                mostrar.innerHTML += `Historia para o clube: 
-            <img src="${sorteio_img[num_img]}" alt="" id="imagem"> `
+                mostrar.innerHTML += `Sua historia para o clube: 
+                <img src="${sorteio_img[num_img]}" alt="" id="imagem"> `
 
                 if (posição.length > 0) {
                   var pos = parseInt(Math.random() * posição.length);
@@ -90,7 +101,7 @@
 
                       if (jogos.length > 0) {
                         var random_jogos = parseInt(Math.random() * jogos.length);
-                        var qtd_jogos =jogos[random_jogos]
+                        var qtd_jogos = jogos[random_jogos]
                         mostrar.innerHTML += `<br> Quantidade de jogos:${qtd_jogos}`
                       }
                     }
@@ -100,191 +111,137 @@
               }
 
               fetch("/usuarios/jogo", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                qtd_golsVar: qtd_gols,
-                qtd_tituloVar: qtd_titulo,
-                qtd_jogosVar: qtd_jogos,
-                idUsuarioVar: idusuario
-            })
-        }).then(function (resposta) {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                  // crie um atributo que recebe o valor recuperado aqui
+                  // Agora vá para o arquivo routes/usuario.js
+                  qtd_golsVar: qtd_gols,
+                  qtd_tituloVar: qtd_titulo,
+                  qtd_jogosVar: qtd_jogos,
+                  idUsuarioVar: idusuario
+                })
+              }).then(function (resposta) {
 
-            console.log("resposta: ", resposta);
+                console.log("resposta: ", resposta);
 
-            if (resposta.ok) {
-            console.log("Ok")
-              
-                limparFormulario();
+                if (resposta.ok) {
+                  console.log("Ok")
+
+                  limparFormulario();
+                  finalizarAguardar();
+                } else {
+                  throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+              }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
                 finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
+              });
 
-        return false;
-              console.log(qtd_gols , qtd_titulo , qtd_jogos)
+              return false;
+              console.log(qtd_gols, qtd_titulo, qtd_jogos)
+             
             }
-                        
+
+           else{ alert("você ja realizou o sorteio")}
+          }
           </script>
         </div>
       </div>
-      <div class="sessao2">
-        <div class="dashboard">
-          <div class="grafico1">
-            <canvas id="myChart3"></canvas>
+      <div class="sessao1">
+        <div class="banner">
+          <div id="button_jogador" style="display: block;">
+          <button onclick="analise()">Ver meu jogador votado </button>
           </div>
+          <script>
+            
+            function analise() {
+              if (button_jogador.style.display == "none") {
+                 button_jogador.style.display = "block"
+                }
+                    else {
+                    button_jogador.style.display = "none"
+                    }
 
+              if (proximaAtualizacao != undefined) {
+                clearTimeout(proximaAtualizacao);
+              }
+
+              fetch(`/medidas/obitersorteio/${idusuario}`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                  response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    for (var contador = 0; contador < resposta.length; contador++) {
+                      if (resposta[contador].nome == "DUDU") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[0]}" alt="" id="imagem"> `
+                      } else if (resposta[contador].nome == "WEVERTON") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[1]}" alt="" id="imagem"> `
+                      }
+                      else if (resposta[contador].nome == "RAPHAEL VEIGA") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[2]}" alt="" id="imagem"> `
+                      }
+                      else if (resposta[contador].nome == "GUSTAVO SCARPA") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[3]}" alt="" id="imagem"> `
+                      }
+                      else if (resposta[contador].nome == "GUSTAVO GOMEZ") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[4]}" alt="" id="imagem"> `
+                      }
+                      else if (resposta[contador].nome == "FERNANDO PRASS") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[5]}" alt="" id="imagem"> `
+                      }
+                      else if (resposta[contador].nome == "MARCOS") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[6]}" alt="" id="imagem"> `
+                      }
+                      else if (resposta[contador].nome == "ZÉ ROBERTO") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[7]}" alt="" id="imagem"> `
+                      }
+                      else if (resposta[contador].nome == "VALDIVIA") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[8]}" alt="" id="imagem"> `
+                      }
+                      else if (resposta[contador].nome == "MARCOS ASSUNÇÃO") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[9]}" alt="" id="imagem"> `
+                      }
+                      else if (resposta[contador].nome == "EDMUNDO") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[10]}" alt="" id="imagem"> `
+                      }
+                      else if (resposta[contador].nome == "ALEX") {
+                        escolha.innerHTML = `Historia do jogador:<br><img src="${sorteio_img[11]}" alt="" id="imagem"> `
+                      }
+                      escolha.innerHTML += `
+                       Posição: ${resposta[contador].posicao}<br>
+                       Quantos gols: ${resposta[contador].gols}<br>
+                       Quantidade de titulos: ${resposta[contador].titulos}<br>
+                       Quantidade de jogos: ${resposta[contador].jogos}
+                       `
+                    }
+                  });
+                } else {
+                  console.error('Nenhum dado encontrado ou erro na API');
+                }
+              })
+                .catch(function (error) {
+                  console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+            }
+
+
+          </script>
+          <div id="escolha">
+
+          </div>
         </div>
+      </div>
 
     </main>
     <div class="footer">
-      <p>Feito com amor por um aluno ♥ SPTech © 2023 v1.0.0>Contato<br><br>
-        email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
-      </P>
-      </div>
-      </p>
-      </div>
+      <p>Feito com amor por Diego Hessel aluno ♥ SPTech © 2023 v1.0.0<br><br>
+        Contato:<br>
+        Email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
+    </p>
+    </div>
+    </div>
   </body>
 
 </html>
-<script>
- let proximaAtualizacao;
-
-    console.log(idusuario)
- 
-  function obterGrafico3() {
-  
-      if (proximaAtualizacao != undefined) {
-        clearTimeout(proximaAtualizacao);
-      }
-  
-      fetch(`/medidas/jogo/${idusuario}`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-          response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            plotarGrafico(resposta, idusuario);
-          });
-        } else {
-          console.error('Nenhum dado encontrado ou erro na API');
-        }
-      })
-        .catch(function (error) {
-          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
-    }
-  
-    function plotarGrafico(resposta, idusuario) {
-  
-      console.log('iniciando plotagem do gráfico...');
-  
-      // Criando estrutura para plotar gráfico - labels
-      let labels = [];
-  
-      // Criando estrutura para plotar gráfico - dados
-      let dados = {
-        labels: labels,
-        datasets: [{
-          label: '',
-          data: [],
-          fill: false,
-          backgroundColor: [''],
-          tension: 0.1
-        },
-        {
-          label: 'mais votados',
-          data: [],
-          fill: '',
-          backgroundColor: ['rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)',
-            'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)', 'rgb(8, 114, 40)',
-            'rgb(8, 114, 40)'],
-          tension: ''
-        }]
-      };
-  
-  
-      // Inserindo valores recebidos em estrutura para plotar o gráfico
-      for (i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
-        labels.push(registro.nome);
-        dados.datasets[0].data.push(registro.nome);
-        dados.datasets[1].data.push(registro.votos);
-      }
-  
-      // console.log('----------------------------------------------')
-      // console.log('O gráfico será plotado com os respectivos valores:')
-      // console.log('Labels:')
-      // console.log(labels)
-      // console.log('Dados:')
-      // console.log(dados.datasets)
-      // console.log('----------------------------------------------')
-  
-      // Criando estrutura para plotar gráfico - config
-      const config = {
-        type: 'bar',
-        data: dados,
-      };
-  
-      // Adicionando gráfico criado em div na tela
-      let myChart3 = new Chart(
-        document.getElementById('myChart3'),
-        config
-      );
-  
-      // setTimeout(() => atualizarGrafico(idAquario, dados, myChart3), 2000);
-    }
-  
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas, 
-  
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(idAquario, dados, myChart3) {
-  
-  
-  
-      fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-          response.json().then(function (novoRegistro) {
-  
-            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-            console.log(`Dados atuais do gráfico:`);
-            console.log(dados);
-  
-            // let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
-            // avisoCaptura.innerHTML = ""
-  
-  
-            // if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-              
-            //   // console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-            //   // console.log(novoRegistro[0].momento_grafico)
-            //   console.log(dados.labels[dados.labels.length - 1])
-             
-            // } else {
-            //   dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-            //   myChart3.update();
-            // }
-  
-            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-            proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart3), 2000);
-          });
-        } else {
-          console.error('Nenhum dado encontrado ou erro na API');
-          // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-          proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart3), 2000);
-        }
-      })
-        .catch(function (error) {
-          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
-  
-    }
-  </script>

@@ -70,15 +70,19 @@ function buscarescudo(idAquario) {
 
 
 
-function buscarsorteio(idAquario) {
+function obitersorteio(idusuario) {
 
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select sorteio.gols , sorteio.titulos, sorteio.jogos, jogador.gols, jogador.titulos, jogador.jogos`;
+        instrucaoSql = `select jogador.nome, jogador.posicao, jogador.gols, jogador.titulos, jogador.jogos
+        from sorteio join cadastro  on cadastro.idcadastro = sorteio.fkcadastro 
+        join jogador on jogador.idjogador= cadastro.fkjogador where cadastro.idcadastro =2 limit 1;`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `from sorteio join cadastro  on cadastro.idcadastro = sorteio.fkcadastro join jogador on jogador.idjogador= cadastro.fkjogador;`;
+        instrucaoSql = `select jogador.nome, jogador.posicao, jogador.gols, jogador.titulos, jogador.jogos
+        from sorteio join cadastro  on cadastro.idcadastro = sorteio.fkcadastro 
+        join jogador on jogador.idjogador= cadastro.fkjogador where cadastro.idcadastro =2 limit 1;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -92,5 +96,5 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarescudo,
-    buscarsorteio
+    obitersorteio
 }

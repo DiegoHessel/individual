@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     /* overflow-x: hidden; */
 }
 
@@ -9,7 +9,7 @@ body {
     width: 100%;
     padding: 0 2vw;
     display: flex;
-   
+
 }
 
 .logo img {
@@ -23,6 +23,7 @@ body {
     width: 100%;
     display: flex;
 }
+
 .header .container {
     justify-content: space-between;
 
@@ -59,14 +60,16 @@ main {
 
 }
 
-.sessao02{
+.sessao02 {
     display: flex;
     flex-direction: row;
     width: 100%;
     gap: 2.5vw;
     justify-content: space-between;
-   background-color: rgb(8, 114, 40); ;
+    background-color: rgb(8, 114, 40);
+    ;
 }
+
 .banner {
     display: flex;
     flex-direction: column;
@@ -91,7 +94,7 @@ main {
     margin: 0;
     padding: 0;
 
-  
+
 }
 
 .sobre {
@@ -105,11 +108,13 @@ main {
     height: 350px;
 
 }
+
 .sobre3 {
     width: 300px;
     height: 280px;
 
 }
+
 .txt_escudo {
     background-color: rgb(8, 114, 40);
     border-radius: 2rem;
@@ -138,7 +143,7 @@ main {
 .footer {
     display: flex;
     width: 100%;
-    border-top: 2px rgb(0, 0, 0) solid;
+    border-top: 1px rgb(0, 0, 0) solid;
     background-color: rgb(8, 114, 40);
     color: rgb(247, 247, 247);
     justify-content: center;
