@@ -77,12 +77,12 @@ function obitersorteio(idusuario) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `select jogador.nome, jogador.posicao, jogador.gols, jogador.titulos, jogador.jogos
         from sorteio join cadastro  on cadastro.idcadastro = sorteio.fkcadastro 
-        join jogador on jogador.idjogador= cadastro.fkjogador where cadastro.idcadastro =2 limit 1;`;
+        join jogador on jogador.idjogador= cadastro.fkjogador where cadastro.idcadastro = ${idusuario} limit 1;`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select jogador.nome, jogador.posicao, jogador.gols, jogador.titulos, jogador.jogos
         from sorteio join cadastro  on cadastro.idcadastro = sorteio.fkcadastro 
-        join jogador on jogador.idjogador= cadastro.fkjogador where cadastro.idcadastro =2 limit 1;`;
+        join jogador on jogador.idjogador= cadastro.fkjogador where cadastro.idcadastro = ${idusuario} limit 1;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

@@ -20,17 +20,18 @@
         </div>
         <ul class="navbar">
           <li>
-            <a href="../index.html" class="agora">Home</a>
+            <a href="../index.html" class="agora">HOME</a>
           </li>
           <li>
-            <a href="../sobre.html">Sobre mim </a>
+            <a href="../sobre.html">SOBRE MIM </a>
           </li>
           <li>
-            <a href="../dashboard/quiz.html">Sorteio</a>
+            <a href="../dashboard/dashboard.html">DASHBOARD</a>
+           
           </li>
 
           <li>
-            <a href="../dashboard/dashboard.html">Dashboard</a>
+            <a href="../dashboard/quiz.html">SORTEIO</a>
           </li>
         </ul>
       </div>
@@ -82,7 +83,7 @@
 
               if (sorteio_img.length > 0) {
                 var num_img = parseInt(Math.random() * sorteio_img.length);
-                mostrar.innerHTML += `Sua historia para o clube: 
+                mostrar.innerHTML += `Sua historia para o clube:<br> 
                 <img src="${sorteio_img[num_img]}" alt="" id="imagem"> `
 
                 if (posição.length > 0) {
@@ -153,7 +154,7 @@
       <div class="sessao1">
         <div class="banner">
           <div id="button_jogador" style="display: block;">
-          <button onclick="analise()">Ver meu jogador votado </button>
+          <button onclick="analise()">Ver jogador que votei </button>
           </div>
           <script>
             
@@ -236,9 +237,9 @@
 
     </main>
     <div class="footer">
-      <p>Feito com amor por Diego Hessel aluno ♥ SPTech © 2023 v1.0.0<br><br>
+      <p>Feito por Diego Hessel aluno ♥ SPTech © 2023 <br><br>
         Contato:<br>
-        Email: diego.verdi@sptech.school<br> celular: (11) 97119-5642
+        Email: diego.verdi@sptech.school<br> Celular: (11) 97119-5642
     </p>
     </div>
     </div>
